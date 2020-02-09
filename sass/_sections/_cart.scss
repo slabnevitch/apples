@@ -1,0 +1,123 @@
+.cart{
+	// padding-top: rem(20);
+
+	&-content{
+		@include col();
+		@include size(6);
+		padding-right: rem(132);
+	}
+	&-info{
+		@include col();
+		@include size(4);
+		padding-top: 76px;
+
+		label{
+			max-width: 301px;
+		}
+	}
+	&-annotation{
+		margin-top: 60px;
+	}
+	&-items{
+		.product-row{
+			margin-bottom: 42px;
+
+			&:last-child{
+				margin-bottom: 0;
+			}
+
+		}
+
+	}
+}
+.product-row{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: flex-start;
+	padding-top: 20px;
+	border-bottom: 1px solid $gray-line;
+
+	&__img{
+		width: 260px;
+		height: 260px;
+		margin-right: rem(138);
+		position: relative;
+		flex-shrink: 0;
+
+		img{
+			@include absolute-center;
+		}
+	}
+	&__text{
+		padding-top: 50px;
+	}
+	&__name{
+		margin-bottom: 16px;
+		font-size: 25px;
+		line-height: 30px;
+	}
+	&__price{
+		font-family: $light;
+		margin-bottom: 8px;
+		// color: $gray-line;
+	}
+	&__year{
+		margin-bottom: 15px;
+		font-size: 14px;
+		line-height: 16px;
+	}
+	&__buttons{
+		.appl-edit-icon,
+		.appl-recycler-icon{
+			width: 14px;
+			height: 14px;
+			display: inline-block;
+			vertical-align: top;
+			margin-right: 23px;
+		}
+	}
+
+
+	&:last-child{
+		border-bottom: none;
+	}
+
+
+}
+.cart-requisites{
+	max-width: 301px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 24px;
+
+	&__year{
+		max-width: 113px;
+		flex: 1 0 auto;
+	}
+	&__month{
+		max-width: 158px;
+		flex: 1 0 auto;
+	}
+}
+.cart-cvv{
+	max-width: 310px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	label{
+		margin-bottom: 0;
+		max-width: 113px;
+	}
+}

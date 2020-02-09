@@ -1,0 +1,25 @@
+doctype html
+html(lang='ru')
+	head
+		meta(charset='utf-8')
+		title
+			block title
+		meta(name="description" content="")
+		link(rel="icon" href="img/favicon.png")
+		meta(name="viewport" content="width=device-width")
+			
+		link(rel="stylesheet" href="css/main.css")
+	
+	body
+		include _mixins
+		include ../_sections/header-bl
+			
+		.appl-content.content-original
+			block content
+		
+		include ../_sections/footer
+		include ../_includes/scripts
+		
+		script(src='js/common.js')
+		script(src='js/appl-map.js')
+		script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_NAmCu9dm16a9i0oeX0T6rBQFgObeiZA&callback=initMap" async defer)

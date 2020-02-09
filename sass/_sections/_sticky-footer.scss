@@ -1,0 +1,36 @@
+.sticky-footer{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 115px;
+	padding-top: 14px;
+	z-index: 3;
+	outline: 1px solid;
+	background-color: rgba(#fff, .7);
+}
+.overal-price,
+.to-pay{
+	@include col();
+	@include size(4);
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+
+}
+.overal-price{
+	@include shift-left(2);
+}
+.to-pay{
+	.button{
+		margin-right: 40px;
+	}
+}
+.overal-price__val{
+	margin-left: 26px;
+	font-size: 50px;
+	line-height: 60px;
+}

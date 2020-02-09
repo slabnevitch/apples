@@ -1,0 +1,189 @@
+.macbookpro{
+	padding-top: rem(75);
+	padding-bottom: 546px;
+	overflow: hidden;
+
+	.appl-heading{
+		position: relative;
+		z-index: 1;
+	}
+
+	.promo-img{
+		bottom: -20px;
+	}
+}
+.features{
+	padding-top: 10px;
+	padding-bottom: rem(160);
+	h2{
+		margin-bottom: 18px;
+		color: rgba(#fff, .35);
+		text-align: left;
+	}
+}
+.power{
+}
+.features-title-wrapper{
+	justify-content: flex-end;
+	h2{
+		@include col();
+		@include size(9);
+	}
+}
+.features-columns-wrapper{
+	justify-content: flex-end;
+
+	
+}
+.features-columns{
+	@include col();
+	@include size(9);
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+
+	&.columns-2{
+		flex-wrap: wrap;
+		// margin-left: -8px;
+		// margin-right: -8px;
+		// width: 90%;
+
+		.features-column{
+			flex: none;
+			margin-right: 0;
+			max-width: none;
+			width: 40%;
+			// @include col();
+			// padding-left: 80px;
+			// @include size(4);
+			
+			&:first-child,
+			&:last-child,
+			&:nth-child(2){
+				max-width: none;
+				// margin-right: 8px;
+			}
+			&:nth-child(odd){
+				// @include col();
+				padding-left: 0;
+				// @include size(6);
+				width: 60%;
+			}
+
+			.features-item__title{
+				letter-spacing: -2px;
+			}
+
+		}
+	}
+
+	&--multi{
+		display: block;
+		column-count: 2;
+		column-gap: 152px;
+		// column-fill: auto;
+		// max-height: 475px;
+
+		.features-item{
+			break-inside: avoid;
+			
+		}
+	}
+
+}
+.features-column{
+	flex: 1 1 auto;
+	margin-right: 100px;
+
+	&:first-child{
+		max-width: 260px;	
+	}
+	&:nth-child(2){
+		max-width: 376px;	
+	}
+	&:last-child{
+		margin-right: 0;
+		max-width: 280px;
+	}
+	
+}
+.features-item{
+	// margin-right: 80px;
+	margin-bottom: 40px;
+	color: #fff;
+
+	ul{
+		li{
+			list-style-type: none;
+		}
+	}
+
+}
+.features-item__title{
+	margin-bottom: 5px;
+	font-family: $med;
+	font-size: rem(50);
+	line-height: rem(60);
+}
+.features-item__text{
+	font-size: 25px;
+	line-height: 30px;
+}
+.thickness{
+	// margin-bottom: 50px;
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		
+	}
+}
+.chars{
+	padding-top: 50px;
+
+}
+.screen-and-sound{
+	position: relative;
+	z-index: 2;
+	.features{
+		padding-bottom: 0;
+		
+	}
+	&__img{
+		img{
+			display: block;
+			max-width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+.rotate-img{
+	margin-top: -220px;
+	img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 100%;	
+	}
+}
+.others{
+	margin-top: -300px;
+	padding-bottom: 0;
+}
+.mac-book-price{
+
+	&__bottom{
+		padding-top: 60px;
+		padding-bottom: rem(160);
+		p{
+			margin-top: 60px;
+			margin-bottom: 70px;
+			font-size: 50px;
+			color: #fff;
+		}
+	}
+}

@@ -1,0 +1,24 @@
+header.header.header-light-bl
+	.wrapper
+		.header-inner
+			.appl-logo
+				img(src="img/logo-bl.svg", alt="alt")
+
+			- var menu = ['Mac', 'iPad', 'iPhone', 'Watch', 'TV', 'Music'];
+			ul.main-menu
+				each item in menu
+					li
+						a(href="#")= item
+
+			.header-right
+				.appl-search-block.to-tooltip
+					.appl-search-icon.tooltip-icon
+					include ../_includes/header-popup-search
+				
+				.appl-cart-block.to-tooltip
+					.appl-cart-icon.tooltip-icon
+					include ../_includes/header-popup-cart
+					
+
+	.header-overflow
+		.header-container.blured.blured--bl

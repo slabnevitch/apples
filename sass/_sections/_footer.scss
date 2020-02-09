@@ -1,0 +1,90 @@
+.footer{
+	position: relative;
+	padding-top: 60px;
+	padding-bottom: 77px;
+	background-color: #fff;
+	z-index: 1;
+	&-no-pd{
+		padding-top: 0;
+	}
+}
+.footer-logo-block,
+.footer-menu,
+.footer-map,
+.footer-contacts{
+	@include col();
+}
+.footer-logo-block{
+	@include size(3);
+	padding-top: 12px;
+
+	.appl-logo{
+		margin-bottom: 70px;
+		max-width: 260px;
+	}
+	&__bottom{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		align-items: center;
+
+		p{
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-right: 26px;
+		}
+	}
+}
+
+.footer-menu{
+	padding-top: 12px;
+	@include size(3);
+	ul{
+		position: relative;
+		left: -44px;
+		// column-count: 2;
+		column-width: 135px;
+		column-gap: 0;
+		li{
+			list-style-type: none;
+			margin-bottom: 17px;	
+			a{
+				// font-size: 18px;
+				text-decoration: none;
+				color: #000;
+				transform: opacity .5s;
+
+				&:hover{
+					opacity: .4;
+				}
+			}
+		}
+	}
+}
+.footer-map{
+	@include size(2);
+	#footer-map{
+		width: 260px;
+		height: 260px;
+		border-radius: 50em;
+		background-color: gray;
+	}
+}
+.footer-contacts{
+	padding-left: rem(68);
+	padding-top: 12px;
+	@include size(2);
+	
+	p{
+		margin-bottom: 35px;
+		margin-top: 0;
+	}
+	.footer-contacts__logo{
+		margin-top: 40px;
+		img{
+			max-width: 100%;
+		}
+	}
+}

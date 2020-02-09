@@ -1,0 +1,37 @@
+extends _misc/main
+
+block title
+	| Ask A Question Page
+
+
+block content
+	section.breadcrumbs
+		.wrapper
+			ul.appl-breadcrumbs
+				li.last
+					a(href="#") Задати питання
+
+	section.feedback.sect-pd-60
+		.wrapper
+			.feedback-left
+				h2 Є питання?
+
+				p Наш менеджер відправить
+					br
+					| Вам листа з відповіддю.
+			
+			.feedback-right
+				form(action="#")
+					label(for="")
+						input(type="text" placeholder="Ім’я")
+					label(for="")
+						input(type="text" placeholder="E-mail")
+
+					textarea(name="fjf", cols="30", rows="10", placeholder="Питання, пропозиції, зауваження та просто теплі слова.")
+
+					.appl-form-bottom
+						.attention-fields
+							span.asterisk *
+							| Обов’язкові поля.
+
+						button.button Відправити
