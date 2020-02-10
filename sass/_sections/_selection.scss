@@ -21,11 +21,19 @@
 		// padding-top: rem(100);
 
 	}
+	&.affixed{
+		padding-top: 0;
+		.product-slider{
+			position: fixed;
+		}
+
+	}
 }
 .product-info{
 	@include col();
 	@include size(5);
 	padding-top: rem(80);
+	padding-bottom: rem(100);
 
 	h2{
 		margin-bottom: 42px;
@@ -47,9 +55,7 @@
 	.owl-nav.disabled + .owl-dots{
 		margin-top: 85px;
 	}
-	&.affixed{
-		position: fixed;
-	}
+
 
 }
 .owl-theme .owl-dots .owl-dot span{
