@@ -100,15 +100,18 @@
             </div>
             <div class="feedback-right">
               <form action="#">
-                <label for="">
+                <label>
                   <input type="text" placeholder="Ім’я">
                 </label>
-                <label for="">
+                <label class="necessarily-field">
                   <input type="text" placeholder="E-mail">
                 </label>
-                <textarea name="fjf" cols="30" rows="10" placeholder="Питання, пропозиції, зауваження та просто теплі слова."></textarea>
+                <label class="necessarily-field">
+                  <textarea name="fjf" cols="30" rows="10" placeholder="Питання, пропозиції, зауваження та просто теплі слова."></textarea>
+                </label>
                 <div class="appl-form-bottom">
-                  <div class="attention-fields"><span class="asterisk">*</span>Обов’язкові поля.</div>
+                  <div class="attention-fields">Обов’язкові поля.
+                  </div>
                   <button class="button">Відправити</button>
                 </div>
               </form>
@@ -141,7 +144,7 @@
             </ul>
           </div>
           <div class="footer-map">
-            <div id="footer-map"></div>
+            <div id="footer-map" class="footer-map"></div>
           </div>
           <div class="footer-contacts">
             <p>З 9-00 до 21-00 <br>Без перерв та вихідных</p>
@@ -150,8 +153,8 @@
           </div>
         </div>
       </footer>
-      <script src="js/libs/jquery/jquery-1.11.2.min.js"></script>
     </main>
+    <script src="js/libs/jquery/jquery-1.11.2.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/appl-map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_NAmCu9dm16a9i0oeX0T6rBQFgObeiZA&amp;callback=initMap" async defer></script>

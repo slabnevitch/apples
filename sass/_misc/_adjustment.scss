@@ -381,6 +381,7 @@ form{
 		display: block;
 	}
 	label{
+		max-width: 301px;
 		margin-bottom: 24px;
 		position: relative;
 
@@ -393,6 +394,19 @@ form{
 
 		&:last-child{
 			margin-bottom: 0;
+		}
+
+		&.necessarily-field{
+
+			&:after{
+				content: '*';
+				position: absolute;
+				top: 8px;
+				right: 6px;
+				color: #ff346b;
+			}
+			.asterisk{
+			}
 		}
 
 	}
@@ -510,7 +524,7 @@ form{
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
-	border: none;
+	border-color: transparent;
 	background-color: transparent;
 	color: $l-accent;
 }
@@ -594,6 +608,7 @@ form{
 @keyframes fadeOutDown {
 	0% {
 		opacity: 1;
+
 		-webkit-transform: translate3d(-50%, 0, 0);
 		-ms-transform: translate3d(-50%, 0, 0);
 		transform: translate3d(-50%, 0, 0);
@@ -601,9 +616,10 @@ form{
 
 	100% {
 		opacity: 0;
-		-webkit-transform: translate3d(-50%, 50%, 0);
-		-ms-transform: translate3d(-50%, 50%, 0);
-		transform: translate3d(-50%, 50%, 0);
+		visibility: hidden;
+		-webkit-transform: translate3d(-50%, 10%, 0);
+		-ms-transform: translate3d(-50%, 10%, 0);
+		transform: translate3d(-50%, 10%, 0);
 	}
 }
 
@@ -614,14 +630,15 @@ form{
 @keyframes fadeInUp {
 	0% {
 		opacity: 0;
-		-webkit-transform: translate3d(-50%, 50%, 0);
-		-ms-transform: translate3d(-50%, 50%, 0);
-		transform: translate3d(-50%, 50%, 0);
+		visibility: hidden;
+		-webkit-transform: translate3d(-50%, 10%, 0);
+		-ms-transform: translate3d(-50%, 10%, 0);
+		transform: translate3d(-50%, 10%, 0);
 	}
 
 	100% {
 		opacity: 1;
-
+		visibility: visible;
 		transform: translate3d(-50%, 0, 0);
 	}
 }

@@ -16,6 +16,18 @@
 	.appl-search-row{
 		padding-right: 87px;
 		margin-bottom: rem(80);
+
+		label{
+			padding-right: 35px;
+		}
+
+		.popup-searc-icon{
+			img{
+				height: 60%;
+				width: 60%;
+				
+			}
+		}
 	}
 }
 .search-results-right{

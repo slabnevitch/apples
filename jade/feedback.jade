@@ -22,16 +22,19 @@ block content
 			
 			.feedback-right
 				form(action="#")
-					label(for="")
+					label
 						input(type="text" placeholder="Ім’я")
-					label(for="")
+					label.necessarily-field
 						input(type="text" placeholder="E-mail")
+						//- span.asterisk *
 
-					textarea(name="fjf", cols="30", rows="10", placeholder="Питання, пропозиції, зауваження та просто теплі слова.")
+					label.necessarily-field
+						textarea(name="fjf", cols="30", rows="10", placeholder="Питання, пропозиції, зауваження та просто теплі слова.")
+						//- span.asterisk *
 
 					.appl-form-bottom
 						.attention-fields
-							span.asterisk *
+							//- span.asterisk *
 							| Обов’язкові поля.
 
 						button.button Відправити

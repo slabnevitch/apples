@@ -43,8 +43,9 @@ jQuery(function() {
     
     BrowserDetect.init();
     // document.write("You are using <b>" + BrowserDetect.browser + "</b> with version <b>" + BrowserDetect.version );
+  
   // header blur
-    var content = $('.appl-content'),
+    var content,
     header = $('.header'),
     headerContainer = $('.header-container'),
     windowHeight = window.innerHeight;
@@ -53,7 +54,16 @@ jQuery(function() {
        windowHeight = window.innerHeight;
     });
 
+    var $copyedContent;
+
+    if($('.sticky-footer').length > 0){
+      content = $('.appl-content, .footer');
+    }else{
+      content = $('.appl-content');
+    }
+    
     $(content).clone().removeClass('content-original').appendTo(headerContainer);
+   
     $('.header-overflow').find('.product-slider').remove();
 
     var footerBlur = windowHeight - 107;
@@ -77,6 +87,7 @@ jQuery(function() {
         'transform' : 'translateY(-'+scroll+'px)'
       });
 
+      
       var heightSumm = scroll+windowHeight - 107;
      
       $('.sticky-footer .blured').css({

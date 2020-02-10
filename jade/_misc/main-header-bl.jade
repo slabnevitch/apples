@@ -12,12 +12,13 @@ html(lang='ru')
 	
 	body
 		include _mixins
-		include ../_sections/header-bl
+		main
+			include ../_sections/header-bl
+				
+			.appl-content.content-original
+				block content
 			
-		.appl-content.content-original
-			block content
-		
-		include ../_sections/footer
+			include ../_sections/footer
 		include ../_includes/scripts
 		
 		script(src='js/common.js')

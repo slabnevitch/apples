@@ -145,6 +145,9 @@
 		.appl-cart-icon{
 			background-image: url(../img/icons-svg/cart-hover.svg);
 		}
+		.appl-header-popup{
+			z-index: 1;
+		}
 	}
 	
 }
@@ -215,6 +218,7 @@
 	border-radius: 10px;
 	animation-duration: .4s;
 	  -webkit-backdrop-filter: blur(30px);
+  	
 
   backdrop-filter: blur(30px);
 

@@ -65,12 +65,12 @@
 }
 .footer-map{
 	@include size(2);
-	#footer-map{
+
 		width: 260px;
 		height: 260px;
 		border-radius: 50em;
 		background-color: gray;
-	}
+
 }
 .footer-contacts{
 	padding-left: rem(68);
