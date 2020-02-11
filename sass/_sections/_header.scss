@@ -21,8 +21,14 @@
 		.appl-logo{
 			max-width: 137px;
 			margin-right: rem(138);
-			
+			@include max-screen(992px){
+				margin-right: 0;
+			}  
 		}
+
+		@include max-screen(992px){
+			justify-content: space-between;
+		}  
 	}
 	&:after{
     content: '';
@@ -87,7 +93,11 @@
 		background-color: rgba(#171A20, .7);
 	}
   }
-
+	
+	@include max-screen(992px){
+		padding-top: 27px;
+		height: 90px;
+	}  
 }
 .appl-logo{
 	width: 100%;
@@ -98,6 +108,10 @@
 }
 .header-right{
 	margin-left: auto;
+
+	@include max-screen(992px){
+		margin-left: 0;
+	}  
 }
 .main-menu{
 	display: -webkit-flex;
@@ -130,7 +144,17 @@
 				opacity: .4;
 			}
 		}
+
+		@include max-screen(1200px){
+			margin-right: 50px;
+		}  
+		@include max-screen(900px){
+			margin-right: 30px;
+		}  
 	}
+	@include max-screen(768px){
+		display: none;
+	}  
 }
 .appl-search-block,
 .appl-cart-block{
@@ -211,19 +235,15 @@
 	margin-top: 35px;
 	margin-left: -3px;
 	// transform: translate(-50%, 0);
-	transform: translate3d(-50%, 100%, 0);
+	transform: translate3d(-50%, 0, 0);
 	padding-top: 	26px;
 	// width: 100%;
 	width: 268px;
 	border-radius: 10px;
 	animation-duration: .4s;
-	  -webkit-backdrop-filter: blur(30px);
-  	
-
-  backdrop-filter: blur(30px);
-
+  // -webkit-backdrop-filter: blur(30px);	
+  // backdrop-filter: blur(30px);
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);
-
   background-color: #ffffff;
 
   &.cart-popup{
@@ -233,22 +253,29 @@
   		padding-right: 46px;
   		position: relative;
   		.appl-edit-icon,
-		.appl-recycler-icon{
-			position: absolute;
-			cursor: pointer;
-			right: 25px;
-		}
-		.appl-edit-icon{
-			top: 16px;
-		}
-		.appl-recycler-icon{
-			top: 46px;
-		}
+  		.appl-recycler-icon{
+  			position: absolute;
+  			cursor: pointer;
+  			right: 25px;
+  		}
+  		.appl-edit-icon{
+  			top: 16px;
+  		}
+  		.appl-recycler-icon{
+  			top: 46px;
+  		}
   		
   	}
 
-  	.appl-header-popup__text{
+  	&:before{
 
+			@include max-screen(1700px){
+				right: 30px;
+
+			}
+			@include max-screen(1300px){
+				right: 8px;
+			}
   	}
   }
 
@@ -262,7 +289,26 @@
 		// z-index: 2;
 		background:  url(../img/icons/popup-triangle.png) 0 0 no-repeat;
 		background-size: 100% auto;
+
+		@include max-screen(1700px){
+			transform: translate(0, -50%);
+			left: auto;
+			right: 40px;
+		}  
+		@include max-screen(1300px){
+			right: 15px;
+		}
   }
+
+  
+  @include max-screen(1700px){
+  	right: -30px;
+  	left: auto;
+  	transform: translate3d(0, 0, 0);
+  }
+  @include max-screen(1300px){
+   right: -8px;	
+  }   
 
 }
 .appl-edit-icon,

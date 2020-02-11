@@ -44,6 +44,16 @@ jQuery(function() {
     BrowserDetect.init();
     // document.write("You are using <b>" + BrowserDetect.browser + "</b> with version <b>" + BrowserDetect.version );
   
+  // mob-menu toggle
+
+    $(".toggle-mnu").click(function() {
+      $(this).toggleClass("on");
+      // $(".main-mnu").stop(true, true).slideToggle();
+      // return false;
+    });
+
+  // end mob-menu toggle 
+
   // product slider
     if($('.product-slider').length > 0){
       $(document).ready(function(){

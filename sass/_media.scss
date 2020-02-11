@@ -2,8 +2,42 @@
 
  
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px){
-/**/
+@media only screen and (max-width : 1700px){
+	@keyframes fadeInUp {
+		0% {
+				opacity: 0;
+				visibility: hidden;
+				-webkit-transform: translate3d(0, 10%, 0);
+				-ms-transform: translate3d(0, 10%, 0);
+				transform: translate3d(0, 10%, 0);
+			}
+
+			100% {
+				opacity: 1;
+				visibility: visible;
+				transform: translate3d(0, 0, 0);
+			}
+	}  
+
+	@keyframes fadeOutDown {
+		0% {
+			opacity: 1;
+
+			-webkit-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+
+		100% {
+			opacity: 0;
+			visibility: hidden;
+			-webkit-transform: translate3d(0, 10%, 0);
+			-ms-transform: translate3d(0, 10%, 0);
+			transform: translate3d(0, 10%, 0);
+		}
+	}
+		
+	
 }
 	
 /* Medium Devices, Desktops */
