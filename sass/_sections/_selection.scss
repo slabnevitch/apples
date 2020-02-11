@@ -22,10 +22,16 @@
 
 	}
 	&.affixed{
-		padding-top: 0;
+		// padding-top: 0;
+		// top: 280px;
 		.product-slider{
 			position: fixed;
+			.owl-nav.disabled + .owl-dots{
+
+				margin-top: 20px;
+			}
 		}
+
 
 	}
 }

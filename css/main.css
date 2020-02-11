@@ -2885,8 +2885,8 @@ form .attention-fields {
   margin-top: 0; }
 
 .blur {
-  -webkit-filter: blur(1em);
-  filter: blur(1em); }
+  -webkit-filter: blur(0.8em);
+  filter: blur(0.8em); }
 
 .blured {
   background-color: #fff;
@@ -3720,10 +3720,10 @@ form .attention-fields {
     width: 100%; }
   .product-display.no-padded {
     padding-top: 0; }
-  .product-display.affixed {
-    padding-top: 0; }
-    .product-display.affixed .product-slider {
-      position: fixed; }
+  .product-display.affixed .product-slider {
+    position: fixed; }
+    .product-display.affixed .product-slider .owl-nav.disabled + .owl-dots {
+      margin-top: 20px; }
 
 .product-info {
   -webkit-box-sizing: border-box;
