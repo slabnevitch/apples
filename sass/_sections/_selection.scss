@@ -10,9 +10,9 @@
 	.sticky-inner{
 		
 		width: 100%;
-		// transform: translate(0, 0); 
-	 //    transform: translate3d(0, 0, 0);
-	 //    will-change: position, transform;
+		transform: translate(0, 0); 
+	    transform: translate3d(0, 0, 0);
+	    will-change: position, transform;
 	}
 	&.no-padded{
 		padding-top: 0;
