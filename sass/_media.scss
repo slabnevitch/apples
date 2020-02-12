@@ -50,27 +50,27 @@
 @media only screen and (max-width : 768px){
 
 	/*Disable Animation on Mobile Devices*/
-// 	.animated{
+	.animated{
 
-// 		/*CSS transitions*/
-// 		-o-transition-property: none !important;
-// 		-moz-transition-property: none !important;
-// 		-ms-transition-property: none !important;
-// 		-webkit-transition-property: none !important;
-// 		transition-property: none !important;
-// 		/*CSS transforms*/
-// 		-o-transform: none !important;
-// 		-moz-transform: none !important;
-// 		-ms-transform: none !important;
-// 		-webkit-transform: none !important;
-// 		transform: none !important;
-// 		/*CSS animations*/
-// 		-webkit-animation: none !important;
-// 		-moz-animation: none !important;
-// 		-o-animation: none !important;
-// 		-ms-animation: none !important;
-// 		animation: none !important;
-// 	}
+	// 	/*CSS transitions*/
+		-o-transition-property: none !important;
+		-moz-transition-property: none !important;
+		-ms-transition-property: none !important;
+		-webkit-transition-property: none !important;
+		transition-property: none !important;
+		/*CSS transforms*/
+		-o-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		/*CSS animations*/
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
 }
 
 
@@ -105,8 +105,17 @@
 
 
 /* Small Devices, Tablets */
+@media only screen and (min-width : 769px){
+	.main-menu{
+		display: -webkit-flex !important;
+		display: -moz-flex !important;
+		display: -ms-flex !important;
+		display: -o-flex !important;
+		display: flex !important;
+	}
+}
 @media only screen and (min-width : 768px){
-	/**/
+
 }
 
 

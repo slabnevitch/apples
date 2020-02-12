@@ -39,6 +39,13 @@ body{
 .appl-content{
 	 flex: 1 0 auto;
 	margin-top: 115px;
+
+	@include max-screen(992px){
+		margin-top: 90px;
+	}
+	@include max-screen(768px){
+		margin-top: 70px;
+	}
 }
 .header, .footer{
 	flex: 0 0 auto;
@@ -428,6 +435,23 @@ a{
 		margin-left: 5px;
 		margin-right: 5px;
 	}
+	label{
+		display: inline-block;
+		margin-bottom: 0;
+	}
+	input[type="radio"]{
+		@include checkbox;
+
+		&:checked{
+			& ~ .app-opt-button{
+				border-color: transparent;
+				&:after{
+
+					border-color: rgba($accent, .75);
+				}
+			}
+		}
+	}
 }
 form{
 	label, input{
@@ -650,21 +674,21 @@ form{
 .toggle-mnu{
 
   display: none;
-  width: 28px;
-  height: 28px;
-  margin-top: 14px;
+  width: 20px;
+  height: 20px;
+  // margin-top: 14px;
 
   span:after, span:before{
 
     content: "";
     position: absolute;
     left: 0;
-    top: 9px;
+    top: 6px;
   } 
 
   span:after{
 
-    top: 18px;
+    top: 12px;
   }
 
   span{
@@ -691,12 +715,12 @@ form{
 
   &.on span:before{
 
-    transform: rotate(45deg) translate(-1px, 0px);
+    transform: rotate(45deg) translate(-4px, 0px);
   } 
 
   &.on span:after{
 
-    transform: rotate(-45deg) translate(6px, -7px);
+    transform: rotate(-45deg) translate(4px, -8px);
   } 
 
   @include max-screen( 768px){

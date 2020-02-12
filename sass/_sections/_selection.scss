@@ -115,13 +115,19 @@
 		}
 	}
 }
-.color-label{
-	position: relative;
-	input{
-		&:checked ~ .fake-input-color{
-			border-color: #2b9dff;
+form{
+	.color-label{
+		position: relative;
+		display: inline-block;
+		margin-bottom: 0;
+		input[type="radio"]{
+			@include checkbox;
+			&:checked ~ .fake-input-color{
+				border-color: #2b9dff;
+			}
 		}
 	}
+	
 }
 .is-affixed{
 	.product-slider{

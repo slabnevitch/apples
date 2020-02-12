@@ -2191,6 +2191,12 @@ body {
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
   margin-top: 115px; }
+  @media only screen and (max-width: 992px) {
+    .appl-content {
+      margin-top: 90px; } }
+  @media only screen and (max-width: 768px) {
+    .appl-content {
+      margin-top: 70px; } }
 
 .header, .footer {
   -webkit-box-flex: 0;
@@ -2521,6 +2527,25 @@ a {
     margin-bottom: 10px;
     margin-left: 5px;
     margin-right: 5px; }
+  .appl-tags label {
+    display: inline-block;
+    margin-bottom: 0; }
+  .appl-tags input[type="radio"] {
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 1px;
+    height: 1px;
+    display: block;
+    left: 50%;
+    top: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0; }
+    .appl-tags input[type="radio"]:checked ~ .app-opt-button {
+      border-color: transparent; }
+      .appl-tags input[type="radio"]:checked ~ .app-opt-button:after {
+        border-color: rgba(43, 157, 255, 0.75); }
 
 form label, form input {
   display: block; }
@@ -2721,16 +2746,15 @@ form .attention-fields {
 
 .toggle-mnu {
   display: none;
-  width: 28px;
-  height: 28px;
-  margin-top: 14px; }
+  width: 20px;
+  height: 20px; }
   .toggle-mnu span:after, .toggle-mnu span:before {
     content: "";
     position: absolute;
     left: 0;
-    top: 9px; }
+    top: 6px; }
   .toggle-mnu span:after {
-    top: 18px; }
+    top: 12px; }
   .toggle-mnu span {
     position: relative;
     display: block; }
@@ -2747,13 +2771,13 @@ form .attention-fields {
   .toggle-mnu.on span {
     background-color: transparent; }
   .toggle-mnu.on span:before {
-    -webkit-transform: rotate(45deg) translate(-1px, 0px);
-    -ms-transform: rotate(45deg) translate(-1px, 0px);
-    transform: rotate(45deg) translate(-1px, 0px); }
+    -webkit-transform: rotate(45deg) translate(-4px, 0px);
+    -ms-transform: rotate(45deg) translate(-4px, 0px);
+    transform: rotate(45deg) translate(-4px, 0px); }
   .toggle-mnu.on span:after {
-    -webkit-transform: rotate(-45deg) translate(6px, -7px);
-    -ms-transform: rotate(-45deg) translate(6px, -7px);
-    transform: rotate(-45deg) translate(6px, -7px); }
+    -webkit-transform: rotate(-45deg) translate(4px, -8px);
+    -ms-transform: rotate(-45deg) translate(4px, -8px);
+    transform: rotate(-45deg) translate(4px, -8px); }
   @media only screen and (max-width: 768px) {
     .toggle-mnu {
       display: block; } }
@@ -2837,7 +2861,9 @@ form .attention-fields {
   top: 0;
   width: 100%;
   height: 115px;
-  z-index: 100; }
+  z-index: 101;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s; }
   .header-inner {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -2855,19 +2881,27 @@ form .attention-fields {
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center;
+    position: relative;
+    z-index: 1; }
     .header-inner .appl-logo {
       max-width: 137px;
       margin-right: 7.66667rem; }
       @media only screen and (max-width: 992px) {
         .header-inner .appl-logo {
           margin-right: 0; } }
+      @media only screen and (max-width: 768px) {
+        .header-inner .appl-logo {
+          max-width: 100px; } }
     @media only screen and (max-width: 992px) {
       .header-inner {
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
         justify-content: space-between; } }
+    @media only screen and (max-width: 768px) {
+      .header-inner {
+        position: static; } }
   .header:after {
     content: '';
     display: none;
@@ -2877,9 +2911,6 @@ form .attention-fields {
     left: 0;
     top: 0;
     background-color: rgba(255, 255, 255, 0.7); }
-  .header-inner {
-    position: relative;
-    z-index: 1; }
   .header-overflow {
     position: absolute;
     width: 100%;
@@ -2887,6 +2918,9 @@ form .attention-fields {
     left: 0;
     height: 100%;
     overflow: hidden; }
+    @media only screen and (max-width: 992px) {
+      .header-overflow {
+        display: none; } }
   .header-cover:after {
     display: block; }
   .header-light-bl .main-menu li a, .header-bl .main-menu li a {
@@ -2895,18 +2929,50 @@ form .attention-fields {
     background-image: url(../img/icons-svg/magnifier-wt.svg); }
   .header-light-bl .appl-cart-icon, .header-bl .appl-cart-icon {
     background-image: url(../img/icons-svg/cart-wt.svg); }
+  .header-light-bl .toggle-mnu span, .header-light-bl .toggle-mnu span:after, .header-light-bl .toggle-mnu span:before, .header-bl .toggle-mnu span, .header-bl .toggle-mnu span:after, .header-bl .toggle-mnu span:before {
+    background-color: #fff; }
+  .header-light-bl .toggle-mnu.on span, .header-bl .toggle-mnu.on span {
+    background-color: transparent; }
+  @media only screen and (max-width: 768px) {
+    .header {
+      height: 70px;
+      padding-top: 15px;
+      background-color: #fff; } }
   .header-bl {
     background-color: #0E1115; }
     .header-bl:after {
       background-color: rgba(14, 17, 21, 0.7); }
+    @media only screen and (max-width: 768px) {
+      .header-bl .main-menu {
+        background-color: #0E1115; } }
+    @media only screen and (max-width: 768px) {
+      .header-bl {
+        background-color: #0E1115; } }
   .header-light-bl {
     background-color: #171A20; }
     .header-light-bl:after {
       background-color: rgba(23, 26, 32, 0.7); }
+    @media only screen and (max-width: 768px) {
+      .header-light-bl .main-menu {
+        background-color: #171A20; } }
+    @media only screen and (max-width: 768px) {
+      .header-light-bl {
+        background-color: #171A20; } }
+  .header.mob-menu-open:after {
+    display: none; }
+  .header.mob-menu-open .header-overflow {
+    display: none; }
+  .header.mob-menu-open .header-right {
+    opacity: 0;
+    visibility: hidden; }
   @media only screen and (max-width: 992px) {
     .header {
       padding-top: 27px;
       height: 90px; } }
+  @media only screen and (max-width: 768px) {
+    .header {
+      padding-top: 20px;
+      height: 70px; } }
 
 .appl-logo {
   width: 100%; }
@@ -2915,7 +2981,9 @@ form .attention-fields {
     width: 100%; }
 
 .header-right {
-  margin-left: auto; }
+  margin-left: auto;
+  -webkit-transition: all .5s;
+  transition: all .5s; }
   @media only screen and (max-width: 992px) {
     .header-right {
       margin-left: 0; } }
@@ -2939,6 +3007,9 @@ form .attention-fields {
       transform: opacity .5s; }
       .main-menu li a:hover {
         opacity: .4; }
+      @media only screen and (max-width: 768px) {
+        .main-menu li a {
+          display: block; } }
     .main-menu li:last-child {
       margin-right: 0; }
     .main-menu li.active a {
@@ -2949,9 +3020,29 @@ form .attention-fields {
     @media only screen and (max-width: 900px) {
       .main-menu li {
         margin-right: 30px; } }
+    @media only screen and (max-width: 768px) {
+      .main-menu li {
+        padding: 15px 0;
+        margin-right: 0;
+        border-bottom: 1px solid #f5f5f5; } }
   @media only screen and (max-width: 768px) {
     .main-menu {
-      display: none; } }
+      display: none;
+      position: fixed;
+      width: 100%;
+      padding: 0 100px;
+      height: -webkit-calc(100vh - 70px);
+      height: calc(100vh - 70px);
+      background-color: #fff;
+      top: 70px;
+      left: 0;
+      overflow: auto; } }
+  @media only screen and (max-width: 576px) {
+    .main-menu {
+      padding: 0 50px; } }
+  @media only screen and (max-width: 375px) {
+    .main-menu {
+      padding: 0 20px; } }
 
 .appl-search-block,
 .appl-cart-block {
@@ -2967,6 +3058,10 @@ form .attention-fields {
   .appl-search-block.active .appl-header-popup,
   .appl-cart-block.active .appl-header-popup {
     z-index: 1; }
+  @media only screen and (max-width: 768px) {
+    .appl-search-block.active .popup-mob-triangle,
+    .appl-cart-block.active .popup-mob-triangle {
+      display: block; } }
 
 .appl-search-block {
   margin-right: 10px; }
@@ -2984,6 +3079,9 @@ form .attention-fields {
   background-image: url(../img/icons-svg/magnifier-bl.svg); }
   .appl-search-icon:hover {
     background-image: url(../img/icons-svg/magnifier-hover.svg); }
+  @media only screen and (max-width: 768px) {
+    .appl-search-icon {
+      margin-right: 0; } }
 
 .appl-cart-icon {
   background-image: url(../img/icons-svg/cart-bl.svg); }
@@ -3053,6 +3151,12 @@ form .attention-fields {
     @media only screen and (max-width: 1300px) {
       .appl-header-popup.cart-popup:before {
         right: 8px; } }
+    @media only screen and (max-width: 768px) {
+      .appl-header-popup.cart-popup:before {
+        right: 0; } }
+    @media only screen and (max-width: 768px) {
+      .appl-header-popup.cart-popup {
+        width: 100%; } }
   .appl-header-popup:before {
     content: '';
     display: block;
@@ -3080,6 +3184,9 @@ form .attention-fields {
     @media only screen and (max-width: 1300px) {
       .appl-header-popup:before {
         right: 15px; } }
+    @media only screen and (max-width: 768px) {
+      .appl-header-popup:before {
+        display: none; } }
   @media only screen and (max-width: 1700px) {
     .appl-header-popup {
       right: -30px;
@@ -3089,6 +3196,40 @@ form .attention-fields {
   @media only screen and (max-width: 1300px) {
     .appl-header-popup {
       right: -8px; } }
+  @media only screen and (max-width: 768px) {
+    .appl-header-popup {
+      display: none;
+      position: fixed;
+      width: 100%;
+      -webkit-transform: none;
+      -ms-transform: none;
+      transform: none;
+      left: 0;
+      right: 0;
+      top: 50px;
+      margin-top: 14px;
+      margin-left: 0;
+      max-height: -webkit-calc(100vh - 64px);
+      max-height: calc(100vh - 64px);
+      overflow: auto;
+      -webkit-border-radius: 0;
+      border-radius: 0; } }
+
+.popup-mob-triangle {
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  bottom: auto;
+  width: 20px;
+  height: 20px;
+  background: url(../img/icons/popup-triangle.png) 0 0 no-repeat;
+  background-size: 100% auto; }
 
 .appl-edit-icon,
 .appl-recycler-icon {
@@ -3945,10 +4086,24 @@ form .attention-fields {
     padding: 0;
     opacity: 0; }
 
-.color-label {
-  position: relative; }
-  .color-label input:checked ~ .fake-input-color {
-    border-color: #2b9dff; }
+form .color-label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0; }
+  form .color-label input[type="radio"] {
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 1px;
+    height: 1px;
+    display: block;
+    left: 50%;
+    top: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0; }
+    form .color-label input[type="radio"]:checked ~ .fake-input-color {
+      border-color: #2b9dff; }
 
 .products-sidebar {
   -webkit-box-sizing: border-box;
@@ -4180,7 +4335,7 @@ form .attention-fields {
   left: 0;
   height: 115px;
   padding-top: 14px;
-  z-index: 3;
+  z-index: 101;
   border-top: 1px solid #D9D9D9; }
   .sticky-footer .wrapper {
     position: relative;
@@ -4373,7 +4528,17 @@ form .attention-fields {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
-  /*Disable Animation on Mobile Devices*/ }
+  /*Disable Animation on Mobile Devices*/
+  .animated {
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    /*CSS transforms*/
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    /*CSS animations*/
+    -webkit-animation: none !important;
+    animation: none !important; } }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
@@ -4393,8 +4558,15 @@ form .attention-fields {
   /**/ }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width: 768px) {
-  /**/ }
+@media only screen and (min-width: 769px) {
+  .main-menu {
+    display: -webkit-flex !important;
+    display: -moz-flex !important;
+    display: -ms-flex !important;
+    display: -o-flex !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {

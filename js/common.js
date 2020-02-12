@@ -44,16 +44,7 @@ jQuery(function() {
     BrowserDetect.init();
     // document.write("You are using <b>" + BrowserDetect.browser + "</b> with version <b>" + BrowserDetect.version );
   
-  // mob-menu toggle
-
-    $(".toggle-mnu").click(function() {
-      $(this).toggleClass("on");
-      // $(".main-mnu").stop(true, true).slideToggle();
-      // return false;
-    });
-
-  // end mob-menu toggle 
-
+    
   // product slider
     if($('.product-slider').length > 0){
       $(document).ready(function(){
@@ -114,7 +105,12 @@ jQuery(function() {
       },
 
       this.docReady = function() {
-        _self.bluredFooterScroll($(this).scrollTop());
+        if($(this).scrollTop() > 0){
+          _self.bluredFooterScroll($(this).scrollTop());
+          _self.bluredHeaderScroll($(this).scrollTop());
+          $('.header').find('.appl-content').addClass('blur');
+          
+        }
       },
 
       this.docScroll = function() {
@@ -188,95 +184,143 @@ jQuery(function() {
 
     var blur = new Blur;
     blur.init();
-    // console.log(blur.check());
-
-    // var content,
-    // header = $('.header'),
-    // headerContainer = $('.header-container'),
-    // windowHeight = window.innerHeight;
-      
-    // $(window).on('resize', function(){
-    //    windowHeight = window.innerHeight;
-    // });
-
-    // var $copyedContent;
-
-    // if($('.sticky-footer').length > 0){
-    //   content = $('.appl-content, .footer');
-    // }else{
-    //   content = $('.appl-content');
-    // }
-    
-    // $(content).clone().removeClass('content-original').appendTo(headerContainer);
-   
-    // $('.header-overflow').find('.product-slider').remove();
-
-    // var footerBlur = windowHeight - 107;
-    // $('.sticky-footer .blured').css({
-    //     '-webkit-transform' : 'translateY(-'+footerBlur+'px)',
-    //     'transform' : 'translateY(-'+footerBlur+'px)'
-    //   });
-
-    // $(document).scroll(function(){
-    //   var scroll = $(this).scrollTop();
-     
-    //   if(scroll > 0){
-    //      $('.header').find('.appl-content').addClass('blur');
-    //      $('.header').addClass('header-cover');
-    //   }else{
-    //      $('.header').find('.appl-content').removeClass('blur');
-    //      $('.header').removeClass('header-cover');
-    //   }
-    //   $('.blured').css({
-    //     '-webkit-transform' : 'translateY(-'+scroll+'px)',
-    //     'transform' : 'translateY(-'+scroll+'px)'
-    //   });
-
-      
-    //   var heightSumm = scroll+windowHeight - 107;
-     
-    //   $('.sticky-footer .blured').css({
-    //     '-webkit-transform' : 'translateY(-'+heightSumm+'px)',
-    //     'transform' : 'translateY(-'+heightSumm+'px)'
-    //   });
- 
-    // });
   // end header blur
 
   // header tooltips
-    $('.to-tooltip').click(function(e) {
-      e.stopPropagation();
-      // alert('to-tooltip');
+    function headerHandling() {
+      var _self = this,
+          $header = $('.header'),
+          $tooltipBlock = $('.to-tooltip'),
+          $body = $('body'),
+          $toggleMenuButton = $(".toggle-mnu");
 
-      var $th = $(this),
-          $tooltip = $th.find('.appl-header-popup');
+      this.init = function() {
+        this.events();
+      },
+      this.events = function() {
+        $tooltipBlock.on('click', this.toggleTooltip);
+        $body.on('click', this.bodyClick);
+        $toggleMenuButton.on('click', this.toggleMenu);
+      },
 
-          console.log(e.target.className);
-     
-      if($(e.target).hasClass('tooltip-icon')){
-        $tooltip.toggleClass('fadeOutDown');
-        $tooltip.toggleClass('fadeInUp');
+      this.toggleMenu = function() {
+        $(this).toggleClass("on");
+        $(".main-menu").stop(true, true).slideToggle(200);
+        $header.toggleClass('mob-menu-open');
+        _self.hiddenAllTooltips();
 
-        $th.toggleClass('active');
-        $th.siblings()
-          .removeClass('active');
-          
+        return false;
+      },
+
+      this.toggleTooltip = function(e) {
+        e.stopPropagation();
+
+        var $th = $(this),
+            $tooltip = $th.find('.appl-header-popup');
+
+            console.log(e.target.className);
+
+        if(screen.width > 768){
+          _self.tooltipDesktopDemonstration($th, e.target);
+        }else{
+          _self.tooltipMobileDemonstration($th, e.target);
+        }
+
+      },
+
+      this.bodyClick = function() {
+          _self.hiddenAllTooltips();
+      },
+
+      this.tooltipDesktopDemonstration = function($item, target) {
+        var $tooltip = $item.find('.appl-header-popup');
         
+        if(this.iconClickCheck(target)){
+            $tooltip.toggleClass('fadeOutDown');
+            $tooltip.toggleClass('fadeInUp');
+
+            $item.toggleClass('active');
+            $item.siblings()
+              .removeClass('active');
+          }
+          $item.siblings()
+            .find('.appl-header-popup')
+            .addClass('fadeOutDown')
+            .removeClass('fadeInUp');
+      },
+
+      this.tooltipMobileDemonstration = function($item, target){
+        var $tooltip = $item.find('.appl-header-popup');
+       
+        if(this.iconClickCheck(target)){
+            $tooltip.fadeToggle();
+            $item.toggleClass('active');
+            $item.siblings()
+              .removeClass('active');
+        }
+         $item.siblings()
+            .find('.appl-header-popup')
+            .hide('fadeOutDown');
+      },
+
+      this.iconClickCheck = function(target) {
+        return $(target).hasClass('tooltip-icon');
+      },
+
+      this.siblingsToggle = function() {
+
+      },
+
+      this.hiddenAllTooltips = function() {
+          if(screen.width > 768){
+            $tooltipBlock
+              .removeClass('active')
+              .find('.appl-header-popup')
+              .addClass('fadeOutDown')
+              .removeClass('fadeInUp');
+          }else{
+            $tooltipBlock
+              .removeClass('active')
+              .find('.appl-header-popup')
+              .hide();
+          }
       }
-      $th.siblings()
-        .find('.appl-header-popup')
-        .addClass('fadeOutDown')
-        .removeClass('fadeInUp');
-    });
+    }
+
+    var headHandle = new headerHandling();
+    headHandle.init();
+
+    // $('.to-tooltip').click(function(e) {
+    //   e.stopPropagation();
+
+    //   var $th = $(this),
+    //       $tooltip = $th.find('.appl-header-popup');
+
+    //       console.log(e.target.className);
+     
+    //   if($(e.target).hasClass('tooltip-icon')){
+    //     $tooltip.toggleClass('fadeOutDown');
+    //     $tooltip.toggleClass('fadeInUp');
+
+    //     $th.toggleClass('active');
+    //     $th.siblings()
+    //       .removeClass('active');
+
+    //   }
+    //   $th.siblings()
+    //     .find('.appl-header-popup')
+    //     .addClass('fadeOutDown')
+    //     .removeClass('fadeInUp');
+    // });
     
-    $('body').click(function() {
-      console.log('click on body!');
-      $('.to-tooltip')
-        .removeClass('active')
-        .find('.appl-header-popup')
-        .addClass('fadeOutDown')
-        .removeClass('fadeInUp');
-    });
+    // $('body').click(function() {
+    //   console.log('click on body!');
+    //   $('.to-tooltip')
+    //     .removeClass('active')
+    //     .find('.appl-header-popup')
+    //     .addClass('fadeOutDown')
+    //     .removeClass('fadeInUp');
+    // });
   // end header tooltips
 
 
