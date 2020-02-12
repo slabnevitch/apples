@@ -3987,16 +3987,11 @@ form .attention-fields {
   margin-right: 8px;
   width: -webkit-calc(40% - 16px);
   width: calc(40% - 16px);
-  padding-top: 5.55556rem;
   will-change: min-height; }
   .product-display .sticky-inner {
     width: 100%; }
   .product-display.no-padded {
     padding-top: 0; }
-  .product-display.affixed .product-slider {
-    position: fixed; }
-    .product-display.affixed .product-slider .owl-nav.disabled + .owl-dots {
-      margin-top: 20px; }
 
 .product-info {
   -webkit-box-sizing: border-box;

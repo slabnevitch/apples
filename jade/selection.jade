@@ -13,14 +13,14 @@ block content
 						a(href="#")= item
 	section.selection
 		.wrapper.selection-wapper
-			.product-display.padded#selection-sticky
-				//- .sticky-inner
-				.product-slider.owl-carousel.owl-theme
-					- for (var i=0; i < 5; i++)
-						.product-slide
-							img.promo-img(src="img/selection-page/lap-top-apple-macbook-pro-touch-bar-2019-13-inchs-i5-8gb-256gb.jpg", srcset="img/selection-page/lap-top-apple-macbook-pro-touch-bar-2019-13-inchs-i5-8gb-256gb@2x.jpg 2x" alt="alt")
-					//- .product-slide
-						img(src="https://image.tmdb.org/t/p/original/5SilmJEs9PzpVvsZlVt5sI54d6x.jpg", alt="")
+			.product-display#selection-sticky
+				.sticky-inner
+					.product-slider.owl-carousel.owl-theme
+						- for (var i=0; i < 5; i++)
+							.product-slide
+								img.promo-img(src="img/selection-page/lap-top-apple-macbook-pro-touch-bar-2019-13-inchs-i5-8gb-256gb.jpg", srcset="img/selection-page/lap-top-apple-macbook-pro-touch-bar-2019-13-inchs-i5-8gb-256gb@2x.jpg 2x" alt="alt")
+						//- .product-slide
+							img(src="https://image.tmdb.org/t/p/original/5SilmJEs9PzpVvsZlVt5sI54d6x.jpg", alt="")
 			
 			.product-info
 				h2 MacBook Pro
@@ -233,4 +233,4 @@ block blured-footer
 block page-scripts
 	script(src="js/libs/owl/dist/owl.carousel.min.js")
 	script(src="js/libs/jquery-ui/jquery-ui.min.js")
-	//- script(src="js/libs/sticky-sidebar/dist/sticky-sidebar.min.js")
+	script(src="js/libs/sticky-sidebar/dist/sticky-sidebar.min.js")

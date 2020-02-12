@@ -54,7 +54,7 @@ jQuery(function() {
           animateOut: 'fadeOut',
           onInitialized: function() {
             console.log('owl init!');
-            // initStickySidebar();
+            initStickySidebar();
           },
           onResized: function() {
             console.log('owl resize');
@@ -66,23 +66,15 @@ jQuery(function() {
   // end product slider
 
   // slider-fixed
-    if($('.product-display').length > 0){
-        var $productSlider = $('.product-slider'),
-            top = $productSlider.offset().top,
-            width = $('.product-display').width();
-            console.log(width);
-
-      // $(document).scroll(function() {
-      //   if($(this).scrollTop() > 0){
-          $('.product-display').addClass('affixed');
-          $productSlider.width(width);
-        // }else{
-          // $('.product-display').removeClass('affixed');
-          // $productSlider.width('auto');
-      //   }
-      // });
-      
-    }
+    // if($('.product-display').length > 0){
+    //     var $productSlider = $('.product-slider'),
+    //         top = $productSlider.offset().top,
+    //         width = $('.product-display').width();
+          
+    //     $('.product-display').addClass('affixed');
+    //     $productSlider.width(width);
+ 
+    // }
   // end slider-fixed
 
   // header blur
@@ -149,8 +141,6 @@ jQuery(function() {
         }else{
           content = $('.appl-content');         
         }
-        content.find('appl-content').removeClass('content-original');
-
         return content;
       },
 
@@ -169,9 +159,11 @@ jQuery(function() {
       },
 
       this.contentCloning = function() {
-        var $clonedContent = this.contentRendering().clone();
+        var $clonedContent = this.contentRendering().clone().removeClass('content-original');
+          console.log(this.contentRendering().html());
        
         if(this.productSliderCheking()){
+          console.log('slider check!');
           $clonedContent.find('.product-slider').remove();
         }
         $clonedContent.appendTo(headerContainer);
@@ -205,7 +197,7 @@ jQuery(function() {
 
       this.toggleMenu = function() {
         $(this).toggleClass("on");
-        $(".main-menu").stop(true, true).slideToggle(200);
+        $(".main-menu").stop(true, true).slideToggle(300);
         $header.toggleClass('mob-menu-open');
         _self.hiddenAllTooltips();
 
@@ -253,14 +245,15 @@ jQuery(function() {
         var $tooltip = $item.find('.appl-header-popup');
        
         if(this.iconClickCheck(target)){
-            $tooltip.fadeToggle();
+            $tooltip.stop(true, true).fadeToggle();
             $item.toggleClass('active');
             $item.siblings()
               .removeClass('active');
         }
          $item.siblings()
             .find('.appl-header-popup')
-            .hide('fadeOutDown');
+            .stop(true, true)
+            .hide();
       },
 
       this.iconClickCheck = function(target) {
@@ -290,37 +283,6 @@ jQuery(function() {
     var headHandle = new headerHandling();
     headHandle.init();
 
-    // $('.to-tooltip').click(function(e) {
-    //   e.stopPropagation();
-
-    //   var $th = $(this),
-    //       $tooltip = $th.find('.appl-header-popup');
-
-    //       console.log(e.target.className);
-     
-    //   if($(e.target).hasClass('tooltip-icon')){
-    //     $tooltip.toggleClass('fadeOutDown');
-    //     $tooltip.toggleClass('fadeInUp');
-
-    //     $th.toggleClass('active');
-    //     $th.siblings()
-    //       .removeClass('active');
-
-    //   }
-    //   $th.siblings()
-    //     .find('.appl-header-popup')
-    //     .addClass('fadeOutDown')
-    //     .removeClass('fadeInUp');
-    // });
-    
-    // $('body').click(function() {
-    //   console.log('click on body!');
-    //   $('.to-tooltip')
-    //     .removeClass('active')
-    //     .find('.appl-header-popup')
-    //     .addClass('fadeOutDown')
-    //     .removeClass('fadeInUp');
-    // });
   // end header tooltips
 
 
@@ -347,29 +309,26 @@ jQuery(function() {
       if($('#selection-sticky').length > 0){
           var sidebar = document.querySelector('.content-original .product-display');
           var stickySidebar = new StickySidebar(sidebar, {
-            // containerSelector: '.content-original .selection-wapper',
-            // innerWrapperSelector: '.content-original .sticky-inner',
+            containerSelector: '.content-original .selection-wapper',
+            innerWrapperSelector: '.content-original .sticky-inner',
             topSpacing: 280,
             bottomSpacing: 20
             // resizeSensor: true
           });
           sidebar.addEventListener('affix.top.stickySidebar', function () {
-             stickySidebar.updateSticky();
+             // stickySidebar.updateSticky();
             // $('#selection-sticky').height(412);
             console.log('sidebar' + $('.product-slider').height());
-            $('.content-original .product-display').removeClass('hidden');
-            stickySidebar.updateSticky();
-            $('.content-original .product-slider').removeClass('hidden');
+            // $('.content-original .product-display').removeClass('hidden');
+            // $('.content-original .product-slider').removeClass('hidden');
           });
-          sidebar.addEventListener('affix.container-bottom.stickySidebar', function () {
-            console.log('container-bottom');
-            // $('.content-original .product-slider').addClass('hidden');
-          });
-          sidebar.addEventListener('affix.unbottom.stickySidebar', function () {
-          });
+         
 
+          console.log(stickySidebar);
         }
+
     }
+    
   // end selection-page-sticky
 
 });
