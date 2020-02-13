@@ -196,7 +196,14 @@ h4{
 	h2{
 		margin-bottom: rem(80);
 		text-align: left;
+		@include max-screen(992px){
+			margin-bottom: rem(50);
+
+		}  
 	}
+	@include max-screen(992px){
+		padding-top: 30px;
+	}  
 }
 .sect-crumbs{
 	width: 100%;
@@ -294,7 +301,9 @@ h4{
 		}
 	}
 
-
+	@include max-screen(1100px){
+		padding-top: 10px;
+	}  
 }
 .breadcrumbs--bl{
 	background-color: $light-black;
@@ -528,7 +537,7 @@ form{
 		}
 
 		&.necessarily-field{
-
+			
 			&:after{
 				content: '*';
 				position: absolute;
@@ -568,9 +577,9 @@ form{
 			max-width: none;
 		} 
 	}
-	textarea{
-		max-width: 536px;	
-	}
+	// textarea{
+	// 	max-width: 536px;	
+	// }
 	.attention-fields{
 		margin-bottom: 20px;	
 	}
@@ -586,6 +595,11 @@ form{
 	align-items: flex-start;
 	justify-content: space-between;
 	padding-right: 52px;
+
+	@include max-screen(768px){
+		padding-right: 0;
+		padding-top: 0;
+	}  
 }
 .attention-fields{
 	font-size: 14px;

@@ -1,33 +1,66 @@
 .about{
 	padding-bottom: 25px;	
 }
-.about-left,
-.feedback-left{
+.about-left{
 		@include 	col();
 		@include 	size(3);
+		@include 	size-sm(10);
+
+}
+.about-left,
+.feedback-left{
+		h2{
+			br{
+
+				@include max-screen(768px){
+					display: none;
+				}  
+			}
+		}
+	
 }
 .feedback-left{
+	@include 	col();
+	@include 	size(3);
+	@include 	size-sm(4);
+	@include 	size-xs(10);
 	p{
 		font-size: 20px;
 		font-family: $reg;
 	}
 }
-.about-right,
-.feedback-right{
+.about-right{
 		@include 	col();
 		@include 	size(4);
+		@include 	size-superLg(6);
+		@include 	size-sm(10);
 		@include shift-left(1);
 
-		form{
+}
+.feedback-right{
+	@include 	col();
+	@include 	size(4);
+	@include shift-left(1);
+	@include 	size-mdr(5);
+	@include shift-sm-left(0);
+	@include 	size-sm(6);
+	@include 	size-xs(10);
+	// @include shift-mdr-left(0);
+	
+	form{
 			label{
 
-				&:last-of-type{
-					max-width: none;
-				}
+				// &:last-of-type{
+				// 	max-width: none;
+				// }
 
+			}
+			.feedback-textarea{
+				max-width: 536px;
 			}
 		}
 }
+
 .thanking{
 	.wrapper{
 		align-items: center;
@@ -36,6 +69,7 @@
 	&-right{
 		@include col();
 		@include size(5);
+		@include size-sm(10);
 	}
 	&-left{
 		h2{
@@ -50,11 +84,19 @@
 			line-height: 30px;
 			font-family: $reg;
 		}
+
+		@include max-screen(768px){
+			text-align: left;
+		}  
 	}
 	&-img{
 		img{
 			max-width: 100%;
 			max-height: 505px;
+
+			@include max-screen(992px){
+				max-height: 300px;
+			}  
 		}
 	}
 }
@@ -73,17 +115,28 @@
 .error-right{
 	@include col();
 	@include size(5);
+	@include size-sm(10);
 	text-align: center;
 	p{
 		margin-bottom: 52px;
 		font-size: 25px;
 		line-height: 30px;
 		font-family: $reg;
+
+		@include max-screen(576px){
+			margin-bottom: 20px;
+		}  
+		@include max-screen(320px){
+			font-size: 18px;
+			line-height: normal;
+		}  
 	}
+	 
 }
 .error-left{
 	@include col();
 	@include size(5);
+	@include size-sm(10);
 	h1{
 		margin-top: 110px;
 		margin-bottom: 14px;
@@ -91,11 +144,42 @@
 		line-height: rem(197);
 		font-family: $bold;
 		color: rgba(#000, .15);
+
+		@include max-screen(768px){
+			margin-top: 0;
+			font-size: 227px;
+			line-height: 197px;
+			text-align: center;
+		}
+		@include max-screen(576px){
+			font-size: 150px;
+			line-height: 160px;
+		}
+
+
+		
 	}
 	p{
-		font-size: 50px;
-		line-height: 60px;
+		font-size: rem(50);
+		line-height: rem(60);
 		font-family: $med;
 		margin-bottom: 16px;
+		text-align: center;
+
+		@include max-screen(768px){
+			font-size: 50px;
+			line-height: 60px;
+		} 
+		@include max-screen(576px){
+			font-size: 25px;
+			line-height: 30px;
+		}
+		@include max-screen(320px){
+			font-size: 18px;
+			line-height: normal;
+		}  
 	}
+	@include max-screen(768px){
+		text-align: center;
+	}  
 }
