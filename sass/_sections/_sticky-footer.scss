@@ -8,10 +8,15 @@
 	z-index: 101;
 	border-top: 1px solid #D9D9D9;
 	// outline: 1px solid;
+	background-color: #fff;
 
 	.wrapper{
 		position: relative;
 		z-index: 1;
+
+		@include max-screen(480px){
+			display: block;
+		}  
 	}
 	
 	&:after{
@@ -24,12 +29,20 @@
 	    // z-index: 1;
 	     background-color: rgba(#fff, .4);
   }
-
+	
+	@include max-screen(992px){
+		height: 70px;
+	}  
+	@include max-screen(576px){
+		height: auto;
+		padding-bottom: 14px;
+	}
 }
 .overal-price,
 .to-pay{
 	@include col();
 	@include size(4);
+	@include size-superLg(5);
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -40,14 +53,49 @@
 }
 .overal-price{
 	@include shift-left(2);
+	@include shift-superLg-left(0);
+	@include size-sm(4);
+	@include size-xs(5);
+	@include size-xxs(10);
+
+	@include max-screen(768px){
+		span{
+			font-size: 14px;
+		}
+	} 
+	@include max-screen(480px){
+		margin-bottom: 10px;
+	}  
 }
 .to-pay{
+	@include size-sm(6);
+	@include size-xs(5);
+	@include size-xxs(10);
 	.button{
+		flex-shrink: 0;
 		margin-right: 40px;
+
+		@include max-screen(768px){
+			margin-right: 10px;
+		}  
+	}
+	.appl-link{
+		@include max-screen(576px){
+			font-size: 14px;
+		}  
 	}
 }
 .overal-price__val{
 	margin-left: 26px;
 	font-size: 50px;
 	line-height: 60px;
+
+	@include max-screen(992px){
+		font-size: 30px;
+		line-height: normal;
+	}  
+	@include max-screen(768px){
+		margin-left: 10px;
+		font-size: 20px;
+	}
 }

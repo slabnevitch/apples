@@ -46,6 +46,15 @@ jQuery(function() {
     console.log(BrowserDetect.version);
     // document.write("You are using <b>" + BrowserDetect.browser + "</b> with version <b>" + BrowserDetect.version );
   
+
+    var isMobile = {
+      Android:        function() { return navigator.userAgent.match(/Android/i) ? true : false; },
+      BlackBerry:     function() { return navigator.userAgent.match(/BlackBerry/i) ? true : false; },
+      iOS:            function() { return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false; },
+      Windows:        function() { return navigator.userAgent.match(/IEMobile/i) ? true : false; },
+      any:            function() { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());  }
+    };
+
   $(window).load(function() {
     // product slider
       if($('.product-slider').length > 0){
@@ -78,7 +87,8 @@ jQuery(function() {
             containerSelector: '.content-original .selection-wapper',
             innerWrapperSelector: '.content-original .sticky-inner',
             topSpacing: 280,
-            bottomSpacing: 20
+            bottomSpacing: 107,
+            minWidth: 992
             // resizeSensor: true
           });
         }
@@ -195,7 +205,10 @@ jQuery(function() {
     }
 
     var blur = new Blur;
-    blur.init();
+    if(BrowserDetect.browser !== 'Explorer' && !isMobile.any() ){
+      console.log('blur init');
+      blur.init(); 
+    }
   // end header blur
 
   // header tooltips
@@ -248,7 +261,11 @@ jQuery(function() {
       this.tooltipDesktopDemonstration = function($item, target) {
         var $tooltip = $item.find('.appl-header-popup');
         
-        $cover.fadeIn(500);
+        if(this.tooltipState($item)){
+           $cover.fadeOut(500);
+        }else{
+           $cover.fadeIn(500);
+        }
 
         if(this.iconClickCheck(target)){
             $tooltip.toggleClass('fadeOutDown');
@@ -267,8 +284,12 @@ jQuery(function() {
 
       this.tooltipMobileDemonstration = function($item, target){
         var $tooltip = $item.find('.appl-header-popup');
-        
-        $cover.fadeIn(500);
+                
+        if(this.tooltipState($item)){
+           $cover.fadeOut(500);
+        }else{
+           $cover.fadeIn(500);
+        }
 
         if(this.iconClickCheck(target)){
             $tooltip.stop(true, true).fadeToggle();
@@ -289,6 +310,10 @@ jQuery(function() {
       this.coverHidden = function() {
         $cover.fadeOut();
       },
+
+      this.tooltipState = function($item) {
+        return $item.hasClass('active');
+      }
 
       this.hiddenAllTooltips = function() {
           if(screen.width > 768){

@@ -4,7 +4,7 @@
 .product-display{
 	@include col();
 	@include size(4);
-	// padding-top: rem(100);
+	@include size-mdr(10);
 	will-change: min-height;
 
 	.sticky-inner{
@@ -21,21 +21,15 @@
 		// padding-top: rem(100);
 
 	}
-	// &.affixed{
-	// 	.product-slider{
-	// 		position: fixed;
-	// 		.owl-nav.disabled + .owl-dots{
-
-	// 			margin-top: 20px;
-	// 		}
-	// 	}
-
-
-	// }
+	@include max-screen(992px){
+		padding-top: rem(100);
+		
+	}  
 }
 .product-info{
 	@include col();
 	@include size(5);
+	@include size-mdr(10);
 	padding-top: rem(80);
 	padding-bottom: rem(100);
 
