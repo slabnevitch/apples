@@ -42,56 +42,71 @@ jQuery(function() {
     };
     
     BrowserDetect.init();
+    console.log(BrowserDetect.browser);
+    console.log(BrowserDetect.version);
     // document.write("You are using <b>" + BrowserDetect.browser + "</b> with version <b>" + BrowserDetect.version );
   
-  // mob-menu toggle
 
-    $(".toggle-mnu").click(function() {
-      $(this).toggleClass("on");
-      // $(".main-mnu").stop(true, true).slideToggle();
-      // return false;
-    });
+    var isMobile = {
+      Android:        function() { return navigator.userAgent.match(/Android/i) ? true : false; },
+      BlackBerry:     function() { return navigator.userAgent.match(/BlackBerry/i) ? true : false; },
+      iOS:            function() { return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false; },
+      Windows:        function() { return navigator.userAgent.match(/IEMobile/i) ? true : false; },
+      any:            function() { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());  }
+    };
 
-  // end mob-menu toggle 
-
-  // product slider
-    if($('.product-slider').length > 0){
-      $(document).ready(function(){
-        $(".product-slider").owlCarousel({
-          items:1,
-          mouseDrag: false,
-          animateOut: 'fadeOut',
-          onInitialized: function() {
-            console.log('owl init!');
-            // initStickySidebar();
-          },
-          onResized: function() {
-            console.log('owl resize');
-          }
+  $(window).load(function() {
+    // product slider
+      if($('.product-slider').length > 0){
+        $(document).ready(function(){
+          $(".product-slider").owlCarousel({
+            items:1,
+            mouseDrag: false,
+            animateOut: 'fadeOut',
+            onInitialized: function() {
+              console.log('owl init!');
+              initStickySidebar();
+            },
+            onResized: function() {
+              console.log('owl resize');
+            }
+          });
         });
-      });
+
+      }
+    // end product slider
+
+  });
+
+  // selection-page-sticky
+    function initStickySidebar(){
+
+      if($('#selection-sticky').length > 0){
+          var sidebar = document.querySelector('.content-original .product-display');
+          var stickySidebar = new StickySidebar(sidebar, {
+            containerSelector: '.content-original .selection-wapper',
+            innerWrapperSelector: '.content-original .sticky-inner',
+            topSpacing: 280,
+            bottomSpacing: 107,
+            minWidth: 992
+            // resizeSensor: true
+          });
+        }
 
     }
-  // end product slider
+    
+  // end selection-page-sticky
 
   // slider-fixed
-    if($('.product-display').length > 0){
-        var $productSlider = $('.product-slider'),
-            top = $productSlider.offset().top,
-            width = $('.product-display').width();
-            console.log(width);
-
-      // $(document).scroll(function() {
-      //   if($(this).scrollTop() > 0){
-          $('.product-display').addClass('affixed');
-          $productSlider.width(width);
-        // }else{
-          // $('.product-display').removeClass('affixed');
-          // $productSlider.width('auto');
-      //   }
-      // });
-      
-    }
+    // if($('.product-display').length > 0){
+    //     var $productSlider = $('.product-slider'),
+    //         top = $productSlider.offset().top,
+    //         width = $('.product-display').width();
+          
+    //     $('.product-display').addClass('affixed');
+    //     $productSlider.width(width);
+ 
+    // }
   // end slider-fixed
 
   // header blur
@@ -114,7 +129,12 @@ jQuery(function() {
       },
 
       this.docReady = function() {
-        _self.bluredFooterScroll($(this).scrollTop());
+        if($(this).scrollTop() > 0){
+          _self.bluredFooterScroll($(this).scrollTop());
+          _self.bluredHeaderScroll($(this).scrollTop());
+          $('.header').find('.appl-content').addClass('blur');
+          
+        }
       },
 
       this.docScroll = function() {
@@ -153,8 +173,6 @@ jQuery(function() {
         }else{
           content = $('.appl-content');         
         }
-        content.find('appl-content').removeClass('content-original');
-
         return content;
       },
 
@@ -173,7 +191,7 @@ jQuery(function() {
       },
 
       this.contentCloning = function() {
-        var $clonedContent = this.contentRendering().clone();
+        var $clonedContent = this.contentRendering().clone().removeClass('content-original');
        
         if(this.productSliderCheking()){
           $clonedContent.find('.product-slider').remove();
@@ -187,96 +205,136 @@ jQuery(function() {
     }
 
     var blur = new Blur;
-    blur.init();
-    // console.log(blur.check());
-
-    // var content,
-    // header = $('.header'),
-    // headerContainer = $('.header-container'),
-    // windowHeight = window.innerHeight;
-      
-    // $(window).on('resize', function(){
-    //    windowHeight = window.innerHeight;
-    // });
-
-    // var $copyedContent;
-
-    // if($('.sticky-footer').length > 0){
-    //   content = $('.appl-content, .footer');
-    // }else{
-    //   content = $('.appl-content');
-    // }
-    
-    // $(content).clone().removeClass('content-original').appendTo(headerContainer);
-   
-    // $('.header-overflow').find('.product-slider').remove();
-
-    // var footerBlur = windowHeight - 107;
-    // $('.sticky-footer .blured').css({
-    //     '-webkit-transform' : 'translateY(-'+footerBlur+'px)',
-    //     'transform' : 'translateY(-'+footerBlur+'px)'
-    //   });
-
-    // $(document).scroll(function(){
-    //   var scroll = $(this).scrollTop();
-     
-    //   if(scroll > 0){
-    //      $('.header').find('.appl-content').addClass('blur');
-    //      $('.header').addClass('header-cover');
-    //   }else{
-    //      $('.header').find('.appl-content').removeClass('blur');
-    //      $('.header').removeClass('header-cover');
-    //   }
-    //   $('.blured').css({
-    //     '-webkit-transform' : 'translateY(-'+scroll+'px)',
-    //     'transform' : 'translateY(-'+scroll+'px)'
-    //   });
-
-      
-    //   var heightSumm = scroll+windowHeight - 107;
-     
-    //   $('.sticky-footer .blured').css({
-    //     '-webkit-transform' : 'translateY(-'+heightSumm+'px)',
-    //     'transform' : 'translateY(-'+heightSumm+'px)'
-    //   });
- 
-    // });
+    if(BrowserDetect.browser !== 'Explorer' && !isMobile.any() ){
+      console.log('blur init');
+      blur.init(); 
+    }
   // end header blur
 
   // header tooltips
-    $('.to-tooltip').click(function(e) {
-      e.stopPropagation();
-      // alert('to-tooltip');
+    function headerHandling() {
+      var _self = this,
+          $header = $('.header'),
+          $tooltipBlock = $('.to-tooltip'),
+          $body = $('body'),
+          $toggleMenuButton = $(".toggle-mnu"),
+          $cover = $('.appl-cover');
 
-      var $th = $(this),
-          $tooltip = $th.find('.appl-header-popup');
+      this.init = function() {
+        this.events();
+      },
+      this.events = function() {
+        $tooltipBlock.on('click', this.toggleTooltip);
+        $body.on('click', this.bodyClick);
+        $toggleMenuButton.on('click', this.toggleMenu);
+      },
 
-          console.log(e.target.className);
-     
-      if($(e.target).hasClass('tooltip-icon')){
-        $tooltip.toggleClass('fadeOutDown');
-        $tooltip.toggleClass('fadeInUp');
+      this.toggleMenu = function() {
+        $(this).toggleClass("on");
+        $(".main-menu").stop(true, true).slideToggle(300);
+        $header.toggleClass('mob-menu-open');
+        _self.hiddenAllTooltips();
 
-        $th.toggleClass('active');
-        $th.siblings()
-          .removeClass('active');
-          
+        return false;
+      },
+
+      this.toggleTooltip = function(e) {
+        e.stopPropagation();
+
+        var $th = $(this),
+            $tooltip = $th.find('.appl-header-popup');
+
+            console.log(e.target.className);
+
+        if(screen.width > 768){
+          _self.tooltipDesktopDemonstration($th, e.target);
+        }else{
+          _self.tooltipMobileDemonstration($th, e.target);
+        }
+
+      },
+
+      this.bodyClick = function() {
+          _self.hiddenAllTooltips();
+      },
+
+      this.tooltipDesktopDemonstration = function($item, target) {
+        var $tooltip = $item.find('.appl-header-popup');
         
+        if(this.tooltipState($item)){
+           $cover.fadeOut(500);
+        }else{
+           $cover.fadeIn(500);
+        }
+
+        if(this.iconClickCheck(target)){
+            $tooltip.toggleClass('fadeOutDown');
+            $tooltip.toggleClass('fadeInUp');
+
+            $item.toggleClass('active');
+            $item.siblings()
+              .removeClass('active');
+          }
+          $item.siblings()
+            .find('.appl-header-popup')
+            .addClass('fadeOutDown')
+            .removeClass('fadeInUp');
+
+      },
+
+      this.tooltipMobileDemonstration = function($item, target){
+        var $tooltip = $item.find('.appl-header-popup');
+                
+        if(this.tooltipState($item)){
+           $cover.fadeOut(500);
+        }else{
+           $cover.fadeIn(500);
+        }
+
+        if(this.iconClickCheck(target)){
+            $tooltip.stop(true, true).fadeToggle();
+            $item.toggleClass('active');
+            $item.siblings()
+              .removeClass('active');
+        }
+         $item.siblings()
+            .find('.appl-header-popup')
+            .stop(true, true)
+            .hide();
+      },
+
+      this.iconClickCheck = function(target) {
+        return $(target).hasClass('tooltip-icon');
+      },
+
+      this.coverHidden = function() {
+        $cover.fadeOut();
+      },
+
+      this.tooltipState = function($item) {
+        return $item.hasClass('active');
       }
-      $th.siblings()
-        .find('.appl-header-popup')
-        .addClass('fadeOutDown')
-        .removeClass('fadeInUp');
-    });
-    
-    $('body').click(function() {
-      console.log('click on body!');
-      $('.to-tooltip')
-        .removeClass('active')
-        .find('.appl-header-popup')
-        .addClass('fadeOutDown')
-        .removeClass('fadeInUp');
-    });
+
+      this.hiddenAllTooltips = function() {
+          if(screen.width > 768){
+            $tooltipBlock
+              .removeClass('active')
+              .find('.appl-header-popup')
+              .addClass('fadeOutDown')
+              .removeClass('fadeInUp');
+          }else{
+            $tooltipBlock
+              .removeClass('active')
+              .find('.appl-header-popup')
+              .hide();
+          }
+           this.coverHidden();
+      }
+    }
+
+    var headHandle = new headerHandling();
+    headHandle.init();
+
   // end header tooltips
 
 
@@ -296,36 +354,5 @@ jQuery(function() {
     });
   }
   // end dropdown
-
-  // selection-page-sticky
-    function initStickySidebar(){
-
-      if($('#selection-sticky').length > 0){
-          var sidebar = document.querySelector('.content-original .product-display');
-          var stickySidebar = new StickySidebar(sidebar, {
-            // containerSelector: '.content-original .selection-wapper',
-            // innerWrapperSelector: '.content-original .sticky-inner',
-            topSpacing: 280,
-            bottomSpacing: 20
-            // resizeSensor: true
-          });
-          sidebar.addEventListener('affix.top.stickySidebar', function () {
-             stickySidebar.updateSticky();
-            // $('#selection-sticky').height(412);
-            console.log('sidebar' + $('.product-slider').height());
-            $('.content-original .product-display').removeClass('hidden');
-            stickySidebar.updateSticky();
-            $('.content-original .product-slider').removeClass('hidden');
-          });
-          sidebar.addEventListener('affix.container-bottom.stickySidebar', function () {
-            console.log('container-bottom');
-            // $('.content-original .product-slider').addClass('hidden');
-          });
-          sidebar.addEventListener('affix.unbottom.stickySidebar', function () {
-          });
-
-        }
-    }
-  // end selection-page-sticky
 
 });

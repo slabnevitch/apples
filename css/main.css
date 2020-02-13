@@ -2820,6 +2820,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 main {
@@ -2847,6 +2848,17 @@ body {
   line-height: 21px;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+.appl-cover {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
 }
 
 .appl-content {
@@ -3254,6 +3266,33 @@ a.appl-link {
   margin-right: 5px;
 }
 
+.appl-tags label {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.appl-tags input[type="radio"] {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 1px;
+  height: 1px;
+  display: block;
+  left: 50%;
+  top: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.appl-tags input[type="radio"]:checked ~ .app-opt-button {
+  border-color: transparent;
+}
+
+.appl-tags input[type="radio"]:checked ~ .app-opt-button:after {
+  border-color: rgba(43, 157, 255, 0.75);
+}
+
 form label,
 form input {
   display: block;
@@ -3268,7 +3307,7 @@ form label {
 form label .asterisk {
   position: absolute;
   right: 23px;
-  top: 20px;
+  top: 30%;
 }
 
 form label:last-child {
@@ -3317,10 +3356,6 @@ form textarea:-ms-input-placeholder {
 
 form input {
   max-width: 301px;
-}
-
-form textarea {
-  max-width: 536px;
 }
 
 form .attention-fields {
@@ -3525,9 +3560,8 @@ a.ui-button:active,
 
 .toggle-mnu {
   display: none;
-  width: 28px;
-  height: 28px;
-  margin-top: 14px;
+  width: 20px;
+  height: 20px;
 }
 
 .toggle-mnu span:after,
@@ -3535,11 +3569,11 @@ a.ui-button:active,
   content: "";
   position: absolute;
   left: 0;
-  top: 9px;
+  top: 6px;
 }
 
 .toggle-mnu span:after {
-  top: 18px;
+  top: 12px;
 }
 
 .toggle-mnu span {
@@ -3552,7 +3586,7 @@ a.ui-button:active,
 .toggle-mnu span:before {
   width: 100%;
   height: 2px;
-  background-color: #fff;
+  background-color: #000;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-backface-visibility: hidden;
@@ -3566,15 +3600,15 @@ a.ui-button:active,
 }
 
 .toggle-mnu.on span:before {
-  -webkit-transform: rotate(45deg) translate(-1px, 0px);
-  -ms-transform: rotate(45deg) translate(-1px, 0px);
-  transform: rotate(45deg) translate(-1px, 0px);
+  -webkit-transform: rotate(45deg) translate(-4px, 0px);
+  -ms-transform: rotate(45deg) translate(-4px, 0px);
+  transform: rotate(45deg) translate(-4px, 0px);
 }
 
 .toggle-mnu.on span:after {
-  -webkit-transform: rotate(-45deg) translate(6px, -7px);
-  -ms-transform: rotate(-45deg) translate(6px, -7px);
-  transform: rotate(-45deg) translate(6px, -7px);
+  -webkit-transform: rotate(-45deg) translate(4px, -8px);
+  -ms-transform: rotate(-45deg) translate(4px, -8px);
+  transform: rotate(-45deg) translate(4px, -8px);
 }
 
 .hidden {
@@ -3584,34 +3618,34 @@ a.ui-button:active,
 @-webkit-keyframes fadeOutDown {
   0% {
     opacity: 1;
-    -webkit-transform: translate3d(-50%, 0, 0);
-    -ms-transform: translate3d(-50%, 0, 0);
-    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate(-50%, 0, 0);
+    -ms-transform: translate(-50%, 0, 0);
+    transform: translate(-50%, 0, 0);
   }
 
   100% {
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: translate3d(-50%, 10%, 0);
-    -ms-transform: translate3d(-50%, 10%, 0);
-    transform: translate3d(-50%, 10%, 0);
+    -webkit-transform: translate(-50%, 10%, 0);
+    -ms-transform: translate(-50%, 10%, 0);
+    transform: translate(-50%, 10%, 0);
   }
 }
 
 @keyframes fadeOutDown {
   0% {
     opacity: 1;
-    -webkit-transform: translate3d(-50%, 0, 0);
-    -ms-transform: translate3d(-50%, 0, 0);
-    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate(-50%, 0, 0);
+    -ms-transform: translate(-50%, 0, 0);
+    transform: translate(-50%, 0, 0);
   }
 
   100% {
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: translate3d(-50%, 10%, 0);
-    -ms-transform: translate3d(-50%, 10%, 0);
-    transform: translate3d(-50%, 10%, 0);
+    -webkit-transform: translate(-50%, 10%, 0);
+    -ms-transform: translate(-50%, 10%, 0);
+    transform: translate(-50%, 10%, 0);
   }
 }
 
@@ -3624,16 +3658,16 @@ a.ui-button:active,
   0% {
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: translate3d(-50%, 10%, 0);
-    -ms-transform: translate3d(-50%, 10%, 0);
-    transform: translate3d(-50%, 10%, 0);
+    -webkit-transform: translate(-50%, 10%, 0);
+    -ms-transform: translate(-50%, 10%, 0);
+    transform: translate(-50%, 10%, 0);
   }
 
   100% {
     opacity: 1;
     visibility: visible;
-    -webkit-transform: translate3d(-50%, 0, 0);
-    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate(-50%, 0, 0);
+    transform: translate(-50%, 0, 0);
   }
 }
 
@@ -3641,16 +3675,16 @@ a.ui-button:active,
   0% {
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: translate3d(-50%, 10%, 0);
-    -ms-transform: translate3d(-50%, 10%, 0);
-    transform: translate3d(-50%, 10%, 0);
+    -webkit-transform: translate(-50%, 10%, 0);
+    -ms-transform: translate(-50%, 10%, 0);
+    transform: translate(-50%, 10%, 0);
   }
 
   100% {
     opacity: 1;
     visibility: visible;
-    -webkit-transform: translate3d(-50%, 0, 0);
-    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate(-50%, 0, 0);
+    transform: translate(-50%, 0, 0);
   }
 }
 
@@ -3677,7 +3711,8 @@ a.ui-button:active,
   top: 0;
   width: 100%;
   height: 115px;
-  z-index: 100;
+  z-index: 101;
+  background-color: #fff;
 }
 
 .header-inner {
@@ -3698,6 +3733,8 @@ a.ui-button:active,
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .header-inner .appl-logo {
@@ -3714,11 +3751,6 @@ a.ui-button:active,
   left: 0;
   top: 0;
   background-color: rgba(255, 255, 255, 0.7);
-}
-
-.header-inner {
-  position: relative;
-  z-index: 1;
 }
 
 .header-overflow {
@@ -3749,6 +3781,20 @@ a.ui-button:active,
   background-image: url(../img/icons-svg/cart-wt.svg);
 }
 
+.header-light-bl .toggle-mnu span,
+.header-light-bl .toggle-mnu span:after,
+.header-light-bl .toggle-mnu span:before,
+.header-bl .toggle-mnu span,
+.header-bl .toggle-mnu span:after,
+.header-bl .toggle-mnu span:before {
+  background-color: #fff;
+}
+
+.header-light-bl .toggle-mnu.on span,
+.header-bl .toggle-mnu.on span {
+  background-color: transparent;
+}
+
 .header-bl {
   background-color: #0E1115;
 }
@@ -3765,8 +3811,22 @@ a.ui-button:active,
   background-color: rgba(23, 26, 32, 0.7);
 }
 
+.header.mob-menu-open:after {
+  display: none;
+}
+
+.header.mob-menu-open .header-overflow {
+  display: none;
+}
+
+.header.mob-menu-open .header-right {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .appl-logo {
   width: 100%;
+  display: block;
 }
 
 .appl-logo img {
@@ -3776,6 +3836,8 @@ a.ui-button:active,
 
 .header-right {
   margin-left: auto;
+  -webkit-transition: all .5s;
+  transition: all .5s;
 }
 
 .main-menu {
@@ -3870,8 +3932,8 @@ a.ui-button:active,
 }
 
 .blur {
-  -webkit-filter: blur(0.8em);
-  filter: blur(0.8em);
+  -webkit-filter: blur(0.6em);
+  filter: blur(0.6em);
 }
 
 .blured {
@@ -3888,22 +3950,16 @@ a.ui-button:active,
 }
 
 .appl-header-popup {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
   position: absolute;
-  top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   max-width: none;
   max-height: none;
   top: 100%;
   margin-top: 35px;
   margin-left: -3px;
-  -webkit-transform: translate3d(-50%, 0, 0);
-  transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
   padding-top: 26px;
   width: 268px;
   -webkit-border-radius: 10px;
@@ -3954,6 +4010,23 @@ a.ui-button:active,
   top: -10px;
   width: 32px;
   height: 21px;
+  background: url(../img/icons/popup-triangle.png) 0 0 no-repeat;
+  background-size: 100% auto;
+}
+
+.popup-mob-triangle {
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  bottom: auto;
+  width: 20px;
+  height: 20px;
   background: url(../img/icons/popup-triangle.png) 0 0 no-repeat;
   background-size: 100% auto;
 }
@@ -4443,8 +4516,22 @@ a.ui-button:active,
   z-index: 0;
 }
 
+.apple-product-promo-sect .promo-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
 .macbook {
-  min-height: 775px;
+  min-height: 756px;
+}
+
+.macbook .promo-wrapper {
+  background-size: auto 60%;
 }
 
 .macbook .promo-img {
@@ -4453,6 +4540,10 @@ a.ui-button:active,
 
 .macbook-air {
   min-height: 768px;
+}
+
+.macbook-air .promo-wrapper {
+  background-size: auto 463px;
 }
 
 .macbook-air .promo-img {
@@ -4465,6 +4556,10 @@ a.ui-button:active,
   background-color: #fafafa;
 }
 
+.imac .promo-wrapper {
+  background-size: auto 608px;
+}
+
 .imac .promo-img {
   max-width: 639px;
   bottom: 50px;
@@ -4473,6 +4568,10 @@ a.ui-button:active,
 .imac-pro {
   min-height: 900px;
   background-color: #1a1a1a;
+}
+
+.imac-pro .promo-wrapper {
+  background-size: auto 727px;
 }
 
 .imac-pro .promo-img {
@@ -4484,6 +4583,10 @@ a.ui-button:active,
   background-color: #f2f2f2;
 }
 
+.mac-pro .promo-wrapper {
+  background-size: auto 735px;
+}
+
 .mac-pro .promo-img {
   max-width: 1100px;
 }
@@ -4491,6 +4594,10 @@ a.ui-button:active,
 .mac-mini {
   min-height: 900px;
   background-color: #0a0b10;
+}
+
+.mac-mini .promo-wrapper {
+  background-size: auto 630px;
 }
 
 .mac-mini .promo-img {
@@ -4512,15 +4619,17 @@ a.ui-button:active,
 
 .mac-accessories .mac-accessories__bg {
   position: absolute;
-  left: -200px;
-  top: -100px;
+  left: 0;
+  top: 0;
   right: auto;
-  width: 1400px;
-  height: -webkit-calc(100% + 100px);
-  height: calc(100% + 100px);
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateX(-230px);
+  -ms-transform: translateX(-230px);
+  transform: translateX(-230px);
   background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 100% auto;
+  background-position: center 0;
+  background-size: auto;
   z-index: 0;
 }
 
@@ -4785,7 +4894,7 @@ a.ui-button:active,
   margin-right: 8px;
   width: -webkit-calc(40% - 16px);
   width: calc(40% - 16px);
-  padding-top: 76px;
+  padding-top: 4.22222rem;
 }
 
 .cart-info label {
@@ -4802,6 +4911,10 @@ a.ui-button:active,
 
 .cart-items .product-row:last-child {
   margin-bottom: 0;
+}
+
+.cart .app-block-with-title .ui-selectmenu-button.ui-button {
+  display: block;
 }
 
 .product-row {
@@ -4950,24 +5063,21 @@ a.ui-button:active,
   margin-right: 8px;
   width: -webkit-calc(40% - 16px);
   width: calc(40% - 16px);
-  padding-top: 5.55556rem;
   will-change: min-height;
 }
 
 .product-display .sticky-inner {
   width: 100%;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  will-change: position, transform;
 }
 
 .product-display.no-padded {
   padding-top: 0;
-}
-
-.product-display.affixed .product-slider {
-  position: fixed;
-}
-
-.product-display.affixed .product-slider .owl-nav.disabled + .owl-dots {
-  margin-top: 20px;
 }
 
 .product-info {
@@ -5080,11 +5190,27 @@ a.ui-button:active,
   opacity: 0;
 }
 
-.color-label {
+form .color-label {
   position: relative;
+  display: inline-block;
+  margin-bottom: 0;
 }
 
-.color-label input:checked ~ .fake-input-color {
+form .color-label input[type="radio"] {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 1px;
+  height: 1px;
+  display: block;
+  left: 50%;
+  top: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+form .color-label input[type="radio"]:checked ~ .fake-input-color {
   border-color: #2b9dff;
 }
 
@@ -5132,6 +5258,12 @@ a.ui-button:active,
   width: calc(90% - 16px);
 }
 
+.product-cards {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .product-cards .product-card {
   width: -webkit-calc(33.33333%);
   width: calc(33.33333%);
@@ -5143,6 +5275,7 @@ a.ui-button:active,
   color: #000;
   text-align: center;
   border: 1px solid #f5f5f5;
+  border-top: none;
 }
 
 .product-card__img {
@@ -5171,6 +5304,7 @@ a.ui-button:active,
 
 .search-results-left {
   width: 316px;
+  padding-left: 8px;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -5204,6 +5338,7 @@ a.ui-button:active,
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
+  padding-right: 8px;
 }
 
 .search-results-right .product-row {
@@ -5216,6 +5351,7 @@ a.ui-button:active,
 
 .search-results-right .product-row .sect-crumbs {
   padding: 0;
+  text-align: left;
 }
 
 .search-results-right .product-row .sect-crumbs li a {
@@ -5267,7 +5403,15 @@ a.ui-button:active,
   padding-bottom: 25px;
 }
 
-.about-left,
+.about-left {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: 8px;
+  margin-right: 8px;
+  width: -webkit-calc(30% - 16px);
+  width: calc(30% - 16px);
+}
+
 .feedback-left {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -5282,7 +5426,17 @@ a.ui-button:active,
   font-family: "SFUIText-Regular", sans-serif;
 }
 
-.about-right,
+.about-right {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: 8px;
+  margin-right: 8px;
+  width: -webkit-calc(40% - 16px);
+  width: calc(40% - 16px);
+  margin-left: -webkit-calc(10% + 8px);
+  margin-left: calc(10% + 8px);
+}
+
 .feedback-right {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -5294,9 +5448,8 @@ a.ui-button:active,
   margin-left: calc(10% + 8px);
 }
 
-.about-right form label:last-of-type,
-.feedback-right form label:last-of-type {
-  max-width: none;
+.feedback-right form .feedback-textarea {
+  max-width: 536px;
 }
 
 .thanking .wrapper {
@@ -5379,10 +5532,11 @@ a.ui-button:active,
 }
 
 .error-left p {
-  font-size: 50px;
-  line-height: 60px;
+  font-size: 2.77778rem;
+  line-height: 3.33333rem;
   font-family: "SFUIText-Medium", sans-serif;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .sticky-footer {
@@ -5392,8 +5546,9 @@ a.ui-button:active,
   left: 0;
   height: 115px;
   padding-top: 14px;
-  z-index: 3;
+  z-index: 101;
   border-top: 1px solid #D9D9D9;
+  background-color: #fff;
 }
 
 .sticky-footer .wrapper {
@@ -5438,6 +5593,9 @@ a.ui-button:active,
 }
 
 .to-pay .button {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   margin-right: 40px;
 }
 
@@ -5461,7 +5619,7 @@ a.ui-button:active,
 
 .footer-logo-block,
 .footer-menu,
-.footer-map,
+.footer-map-wrapper,
 .footer-contacts {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -5534,14 +5692,16 @@ a.ui-button:active,
   opacity: .4;
 }
 
-.footer-map {
+.footer-map-wrapper {
   width: -webkit-calc(20% - 16px);
   width: calc(20% - 16px);
+}
+
+.footer-map {
   width: 260px;
   height: 260px;
   -webkit-border-radius: 50em;
   border-radius: 50em;
-  background-color: gray;
 }
 
 .footer-contacts {
@@ -5598,8 +5758,16 @@ a.ui-button:active,
   /**/
 }
 
-@media only screen and (min-width: 768px) {
-  /**/
+@media only screen and (min-width: 769px) {
+  .main-menu {
+    display: -webkit-flex !important;
+    display: -moz-flex !important;
+    display: -ms-flex !important;
+    display: -o-flex !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -5616,9 +5784,8 @@ a.ui-button:active,
   }
 
   .appl-header-popup:before {
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
     left: auto;
     right: 40px;
   }
@@ -5715,6 +5882,47 @@ a.ui-button:active,
   .wrapper-no-fl {
     max-width: 1200px;
   }
+
+  .mac-accessories .mac-accessories__bg {
+    -webkit-transform: translateX(-150px);
+    -ms-transform: translateX(-150px);
+    transform: translateX(-150px);
+  }
+
+  .footer-logo-block .appl-logo {
+    margin-bottom: 30px;
+  }
+
+  .footer-logo-block__bottom p {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .footer-logo-block__bottom {
+    display: block;
+  }
+
+  .footer-menu ul {
+    left: 0;
+    padding-left: 30px;
+  }
+
+  .footer-map {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .footer-logo-block {
+    width: -webkit-calc(20% - 16px);
+    width: calc(20% - 16px);
+  }
+
+  .footer-map-wrapper {
+    width: -webkit-calc(30% - 16px);
+    width: calc(30% - 16px);
+  }
 }
 
 @media only screen and (max-width: 1300px) {
@@ -5731,7 +5939,29 @@ a.ui-button:active,
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .about-right {
+    width: -webkit-calc(60% - 16px);
+    width: calc(60% - 16px);
+  }
+
+  .overal-price,
+  .to-pay {
+    width: -webkit-calc(50% - 16px);
+    width: calc(50% - 16px);
+  }
+
+  .overal-price {
+    margin-left: -webkit-calc(0% + 8px);
+    margin-left: calc(0% + 8px);
+  }
+}
+
 @media only screen and (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+
   .wrapper {
     max-width: 1170px;
   }
@@ -5747,9 +5977,194 @@ a.ui-button:active,
   .main-menu li {
     margin-right: 50px;
   }
+
+  .mac-accessories .mac-accessories__bg {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  .macbook,
+  .macbook-air,
+  .imac,
+  .imac-pro,
+  .mac-pro,
+  .mac-mini {
+    min-height: 600px;
+  }
+
+  .macbook .promo-wrapper,
+  .macbook-air .promo-wrapper,
+  .imac .promo-wrapper,
+  .imac-pro .promo-wrapper,
+  .mac-pro .promo-wrapper,
+  .mac-mini .promo-wrapper {
+    background-size: auto 66%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .products-sidebar {
+    width: -webkit-calc(20% - 16px);
+    width: calc(20% - 16px);
+  }
+
+  .products-content {
+    width: -webkit-calc(80% - 16px);
+    width: calc(80% - 16px);
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .appl-breadcrumbs {
+    padding-top: 10px;
+  }
+
+  .product-row__img {
+    margin-right: 50px;
+  }
+
+  .product-cards .product-card {
+    width: -webkit-calc(50%);
+    width: calc(50%);
+  }
+
+  .product-card__img {
+    height: 244px;
+  }
+
+  .search-results-right .product-row .sect-crumbs li a {
+    font-size: 18px;
+  }
+
+  .search-results-right .product-row .sect-crumbs li:after {
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+  }
+
+  .search-results-right .product-row .sect-crumbs li {
+    margin-right: 15px;
+  }
+
+  .search-results-right .product-row {
+    padding-left: 30px;
+  }
+
+  .footer {
+    font-size: 16px;
+  }
+
+  .footer {
+    font-size: 18px;
+  }
+
+  .footer-logo-block__bottom .button {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .footer-logo-block__bottom .button {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .footer-logo-block {
+    padding-right: 30px;
+  }
+
+  .footer-menu ul {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .accessories .heading {
+    width: -webkit-calc(80% - 16px);
+    width: calc(80% - 16px);
+  }
+
+  .product-display {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .product-info {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .products-sidebar {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .products-content {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .feedback-right {
+    width: -webkit-calc(50% - 16px);
+    width: calc(50% - 16px);
+  }
+
+  .footer-logo-block {
+    width: -webkit-calc(50% - 16px);
+    width: calc(50% - 16px);
+  }
+
+  .footer-menu {
+    width: -webkit-calc(50% - 16px);
+    width: calc(50% - 16px);
+  }
+
+  .footer-map-wrapper {
+    width: -webkit-calc(50% - 16px);
+    width: calc(50% - 16px);
+  }
+
+  .footer-contacts {
+    width: -webkit-calc(50% - 16px);
+    width: calc(50% - 16px);
+  }
 }
 
 @media only screen and (max-width: 992px) {
+  html {
+    font-size: 12px;
+  }
+
+  .appl-content {
+    margin-top: 90px;
+  }
+
+  .wrapper {
+    max-width: 960px;
+  }
+
+  .wrapper-wide {
+    max-width: 960px;
+  }
+
+  .wrapper-no-fl {
+    max-width: 960px;
+  }
+
+  .sect-pd-60 h2 {
+    margin-bottom: 2.77778rem;
+  }
+
+  .sect-pd-60 {
+    padding-top: 30px;
+  }
+
+  .button {
+    padding: 10px 25px 10px 25px;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
   .header-inner .appl-logo {
     margin-right: 0;
   }
@@ -5761,6 +6176,10 @@ a.ui-button:active,
     justify-content: space-between;
   }
 
+  .header-overflow {
+    display: none;
+  }
+
   .header {
     padding-top: 27px;
     height: 90px;
@@ -5770,27 +6189,821 @@ a.ui-button:active,
     margin-left: 0;
   }
 
+  .product-display {
+    padding-top: 5.55556rem;
+  }
+
+  .product-slider .owl-nav.disabled + .owl-dots {
+    margin-top: 30px;
+  }
+
+  .products-sidebar ul li:last-child {
+    margin-right: 0;
+  }
+
+  .products-sidebar ul li {
+    margin-right: 20px;
+  }
+
+  .products-sidebar ul {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .products-sidebar {
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .product-cards .product-card {
+    width: -webkit-calc(33.33333%);
+    width: calc(33.33333%);
+  }
+
+  .search-results-right .product-row {
+    padding-bottom: 10px;
+  }
+
+  .thanking-img img {
+    max-height: 300px;
+  }
+
+  .sticky-footer {
+    height: 70px;
+  }
+
+  .overal-price__val {
+    font-size: 30px;
+    line-height: normal;
+  }
+
+  .footer {
+    padding-bottom: 40px;
+  }
+
+  .footer-logo-block,
+  .footer-menu,
+  .footer-map-wrapper,
+  .footer-contacts {
+    margin-bottom: 30px;
+  }
+
+  .footer-logo-block__bottom p {
+    margin-right: 26px;
+    margin-bottom: 0;
+  }
+
+  .footer-logo-block__bottom {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .footer-logo-block {
+    padding-right: 0;
+  }
+
+  .footer-menu ul {
+    padding-left: 0;
+    -webkit-column-width: auto;
+    -moz-column-width: auto;
+    column-width: auto;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 15px;
+    -moz-column-gap: 15px;
+    column-gap: 15px;
+  }
+
+  .footer-map {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .footer-contacts {
+    padding-left: 0;
+  }
+
   /**/
+}
+
+@media only screen and (max-width: 960px) {
+  .cart-content {
+    padding-right: 30px;
+  }
+
+  .cart-items .product-row {
+    margin-bottom: 15px;
+  }
+
+  .search-results-left .appl-search-row {
+    padding-right: 16px;
+  }
+
+  .search-results-left {
+    width: 250px;
+  }
+
+  .search-results-left {
+    width: 100%;
+    padding-right: 8px;
+  }
 }
 
 @media only screen and (max-width: 900px) {
   .main-menu li {
     margin-right: 30px;
   }
+
+  .product-row__img {
+    margin-right: 25px;
+    width: 200px;
+    height: 200px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
+  html {
+    font-size: 10px;
+  }
+
+  .appl-content {
+    margin-top: 70px;
+  }
+
+  .wrapper {
+    max-width: 720px;
+  }
+
+  .wrapper-wide {
+    max-width: 720px;
+  }
+
+  .wrapper-no-fl {
+    max-width: 720px;
+  }
+
+  .wrapper-no-fl {
+    max-width: 720px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .appl-form-bottom {
+    padding-right: 0;
+    padding-top: 0;
+  }
+
+  .toggle-mnu {
+    display: block;
+  }
+
+  .header-inner .appl-logo {
+    max-width: 100px;
+  }
+
+  .header-inner {
+    position: static;
+  }
+
+  .header {
+    height: 70px;
+    padding-top: 15px;
+  }
+
+  .header-bl .main-menu {
+    background-color: #0E1115;
+  }
+
+  .header-bl {
+    background-color: #0E1115;
+  }
+
+  .header-light-bl .main-menu {
+    background-color: #171A20;
+  }
+
+  .header-light-bl {
+    background-color: #171A20;
+  }
+
+  .header {
+    padding-top: 20px;
+    height: 70px;
+  }
+
+  .main-menu li a {
+    display: block;
+  }
+
+  .main-menu li {
+    padding: 15px 0;
+    margin-right: 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
   .main-menu {
+    display: none;
+    position: fixed;
+    width: 100%;
+    padding: 0 100px;
+    height: -webkit-calc(100vh - 70px);
+    height: calc(100vh - 70px);
+    background-color: #fff;
+    top: 70px;
+    left: 0;
+    overflow: auto;
+  }
+
+  .appl-search-block.active .popup-mob-triangle,
+  .appl-cart-block.active .popup-mob-triangle {
+    display: block;
+  }
+
+  .appl-search-icon {
+    margin-right: 0;
+  }
+
+  .appl-header-popup.cart-popup:before {
+    right: 0;
+  }
+
+  .appl-header-popup.cart-popup {
+    width: 100%;
+  }
+
+  .appl-header-popup:before {
     display: none;
   }
 
+  .appl-header-popup {
+    display: none;
+    position: fixed;
+    width: 100%;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    left: 0;
+    right: 0;
+    top: 50px;
+    margin-top: 14px;
+    margin-left: 0;
+    max-height: -webkit-calc(100vh - 64px);
+    max-height: calc(100vh - 64px);
+    overflow: auto;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+
+  .mac-accessories .mac-accessories__bg {
+    background-position: -200px 0;
+  }
+
+  .product-row__img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .product-info h2 {
+    margin-bottom: 30px;
+  }
+
+  .product-cards .product-card {
+    width: -webkit-calc(50%);
+    width: calc(50%);
+  }
+
+  .search-results-left h2 {
+    margin-bottom: 20px;
+  }
+
+  .search-results-left .appl-search-row {
+    margin-bottom: 20px;
+    padding-right: 0;
+  }
+
+  .search-results-left {
+    min-height: 1px;
+    padding-top: 20px;
+    border-right: none;
+  }
+
+  .filter-row .ui-selectmenu-button.ui-button {
+    max-width: none;
+    padding-right: 5px;
+  }
+
+  .about-left h2 br,
+  .feedback-left h2 br {
+    display: none;
+  }
+
+  .thanking-right {
+    text-align: left;
+  }
+
+  .error-left h1 {
+    margin-top: 0;
+    font-size: 227px;
+    line-height: 197px;
+    text-align: center;
+  }
+
+  .error-left p {
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  .error-left {
+    text-align: center;
+  }
+
+  .overal-price span {
+    font-size: 14px;
+  }
+
+  .to-pay .button {
+    margin-right: 10px;
+  }
+
+  .overal-price__val {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .footer-logo-block__bottom p {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .footer-logo-block__bottom {
+    display: block;
+  }
+
+  .footer-menu ul {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+
+  .macbook,
+  .macbook-air,
+  .imac,
+  .imac-pro,
+  .mac-pro,
+  .mac-mini {
+    min-height: 500px;
+  }
+
+  .macbook .promo-wrapper,
+  .macbook-air .promo-wrapper,
+  .imac .promo-wrapper,
+  .imac-pro .promo-wrapper,
+  .mac-pro .promo-wrapper,
+  .mac-mini .promo-wrapper {
+    background-size: auto 55%;
+  }
+
+  .toggle-mnu span,
+  .toggle-mnu span:after,
+  .toggle-mnu span:before {
+    -webkit-transition: none;
+    transition: none;
+  }
+
   /*Disable Animation on Mobile Devices*/
+
+  .animated {
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    /*CSS transforms*/
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    /*CSS animations*/
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .accessories .heading {
+    width: -webkit-calc(90% - 16px);
+    width: calc(90% - 16px);
+  }
+
+  .cart-content {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .cart-info {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .about-left {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .feedback-left {
+    width: -webkit-calc(40% - 16px);
+    width: calc(40% - 16px);
+  }
+
+  .about-right {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .feedback-right {
+    margin-left: -webkit-calc(0% + 8px);
+    margin-left: calc(0% + 8px);
+  }
+
+  .feedback-right {
+    width: -webkit-calc(60% - 16px);
+    width: calc(60% - 16px);
+  }
+
+  .thanking-left,
+  .thanking-right {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .error-right {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .error-left {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .overal-price {
+    width: -webkit-calc(40% - 16px);
+    width: calc(40% - 16px);
+  }
+
+  .to-pay {
+    width: -webkit-calc(60% - 16px);
+    width: calc(60% - 16px);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  html {
+    font-size: 8px;
+  }
+
+  .sect-crumbs li a {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .sect-crumbs li:after {
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+  }
+
+  .sect-crumbs li {
+    margin-right: 15px;
+  }
+
+  .button {
+    padding: 7px 15px;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .main-menu {
+    padding: 0 50px;
+  }
+
+  .apple-product-promo-sect h2 {
+    margin-bottom: 15px;
+  }
+
+  .macbook .promo-wrapper {
+    background-size: 90% auto;
+  }
+
+  .mac-accessories .mac-accessories__bg {
+    background-position: -300px 0;
+  }
+
+  .product-row__img {
+    margin-right: 15px;
+  }
+
+  .error-right p {
+    margin-bottom: 20px;
+  }
+
+  .error-left h1 {
+    font-size: 150px;
+    line-height: 160px;
+  }
+
+  .error-left p {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .sticky-footer {
+    height: auto;
+    padding-bottom: 14px;
+  }
+
+  .to-pay .appl-link {
+    font-size: 14px;
+  }
+
+  .footer-logo-block .appl-logo {
+    margin-bottom: 10px;
+  }
+
+  .footer-menu ul {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+
+  .footer-contacts {
+    padding-left: 30px;
+  }
+
+  .macbook,
+  .macbook-air,
+  .imac,
+  .imac-pro,
+  .mac-pro,
+  .mac-mini {
+    min-height: 400px;
+  }
+
+  .macbook .promo-wrapper {
+    background-size: 120% auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .accessories .heading {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .feedback-left {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .feedback-right {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .overal-price {
+    width: -webkit-calc(50% - 16px);
+    width: calc(50% - 16px);
+  }
+
+  .to-pay {
+    width: -webkit-calc(50% - 16px);
+    width: calc(50% - 16px);
+  }
+
+  .footer-logo-block {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .footer-menu {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .wrapper {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-  /**/
+  .appl-breadcrumbs li a {
+    font-size: 15px;
+  }
+
+  .appl-breadcrumbs li:after {
+    font-size: 15px;
+  }
+
+  .accessories {
+    min-height: 550px;
+  }
+
+  .product-row {
+    padding-top: 10px;
+  }
+
+  .product-slider .owl-item .product-slide {
+    height: 206px;
+  }
+
+  .product-cards .product-card {
+    width: 100%;
+  }
+
+  .product-card__img {
+    height: 200px;
+  }
+
+  .sticky-footer .wrapper {
+    display: block;
+  }
+
+  .overal-price {
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    padding-bottom: 95px;
+  }
+
+  .footer-map {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-contacts p br {
+    display: none;
+  }
+
+  .footer-contacts p {
+    margin-bottom: 15px;
+  }
+
+  .footer-contacts {
+    padding-left: 0;
+  }
+
+  .footer-contacts .footer-contacts__logo {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .overal-price {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .to-pay {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .footer-map-wrapper {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+
+  .footer-contacts {
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px);
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .app-opt-button {
+    padding: 10px 15px;
+    max-width: none;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  form label {
+    max-width: none;
+  }
+
+  form input,
+  form textarea {
+    padding: 10px 15px;
+    max-width: none;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  form input {
+    max-width: none;
+  }
+
+  .ui-selectmenu-button.ui-button {
+    padding: 10px 15px;
+    max-width: none;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  .ui-menu .ui-menu-item-wrapper {
+    padding: 10px 15px;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  .ui-selectmenu-icon.ui-icon {
+    margin-top: 6px;
+  }
+
+  .accessories h2 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .main-menu {
+    padding: 0 20px;
+  }
+
+  .cart-info label {
+    max-width: none;
+  }
+
+  .product-row__name {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
+  .product-info h2 {
+    margin-bottom: 20px;
+  }
+
+  .product-slider .owl-item .product-slide {
+    height: 150px;
+  }
+
+  .product-card__img {
+    height: 180px;
+  }
+
+  .footer-menu ul {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
 }
 
 @media only screen and (max-width: 320px) {
+  .product-row__text {
+    padding-top: 15px;
+  }
+
+  .product-row {
+    display: block;
+  }
+
+  .product-card__img {
+    height: 150px;
+  }
+
+  .product-card__name {
+    font-size: 22px;
+    line-height: normal;
+  }
+
+  .error-right p {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .error-left p {
+    font-size: 18px;
+    line-height: normal;
+  }
+
   /**/
 }
