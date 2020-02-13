@@ -4,15 +4,25 @@
 	&-content{
 		@include col();
 		@include size(6);
+		@include size-sm(10);
 		padding-right: rem(132);
+
+		@include max-screen(960px){
+			padding-right: 30px;
+		}  
 	}
 	&-info{
 		@include col();
 		@include size(4);
-		padding-top: 76px;
+		@include size-sm(10);
+		padding-top: rem(76);
 
 		label{
 			max-width: 301px;
+
+			@include max-screen(375px){
+				max-width: none;
+			} 
 		}
 	}
 	&-annotation{
@@ -26,8 +36,17 @@
 				margin-bottom: 0;
 			}
 
+			@include max-screen(960px){
+				margin-bottom: 15px;
+			}  
+
 		}
 
+	}
+	.app-block-with-title{
+		.ui-selectmenu-button.ui-button{
+			display: block;
+		}
 	}
 }
 .product-row{
@@ -50,14 +69,39 @@
 		img{
 			@include absolute-center;
 		}
+
+		@include max-screen(1100px){
+			margin-right: 50px;
+		}  
+		@include max-screen(900px){
+			margin-right: 25px;
+			width: 200px;
+			height: 200px;
+		}
+		@include max-screen(768px){
+			width: 150px;
+			height: 150px;
+		}
+		@include max-screen(576px){
+			margin-right: 15px;
+		}
 	}
 	&__text{
 		padding-top: 50px;
+
+		@include max-screen(320px){
+			padding-top: 15px;
+		}  
 	}
 	&__name{
 		margin-bottom: 16px;
 		font-size: 25px;
 		line-height: 30px;
+
+		@include max-screen(375px){
+			font-size: 22px;
+			line-height: 25px;
+		}  
 	}
 	&__price{
 		font-family: $light;
@@ -85,6 +129,12 @@
 		border-bottom: none;
 	}
 
+	@include max-screen(480px){
+		padding-top: 10px;
+	}  
+	@include max-screen(320px){
+		display: block;
+	}
 
 }
 .cart-requisites{

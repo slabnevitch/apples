@@ -13,6 +13,12 @@ html{
 	@include max-screen(992px){
 		font-size: 12px;
 	}
+	@include max-screen(768px){
+		font-size: 10px;
+	}
+	@include max-screen(576px){
+		font-size: 8px;
+	}
 }
 html, body{
 	margin: 0;
@@ -146,6 +152,12 @@ h2{
 	font-size: rem(50);
 	line-height: rem(60);
 	text-align: center;
+
+	@include max-screen(768px){
+		font-size: 30px;
+		line-height: 40px;
+		
+	}  
 }
 h4{
 	margin: 0;
@@ -247,6 +259,10 @@ h4{
 			
 			text-decoration: none;
 			color: rgba(#000, .35);
+
+			@include max-screen(480px){
+				font-size: 15px;
+			}  
 		}
 		&:after{
 			content: '-';
@@ -258,6 +274,10 @@ h4{
 			font-size: 18px;
 			font-family: $thin;
 			color: rgba(#000, .35);
+
+			@include max-screen(480px){
+				font-size: 15px;
+			}  
 		}
 		&:last-child{
 			&:after{
@@ -449,6 +469,13 @@ a{
   	padding-left: 20px;
   	padding-right: 20px;
   }
+
+  @include max-screen(375px){
+  	padding: 10px 15px;
+  	max-width: none;
+  	font-size: 18px;
+  	line-height: 23px;
+ } 
 }
 .appl-tags{
 	margin-left: -5px;
@@ -492,7 +519,7 @@ form{
 		.asterisk{
 			position: absolute;
 			right: 23px;
-			top: 20px;
+			top: 30%;
 		}
 
 
@@ -512,7 +539,10 @@ form{
 			.asterisk{
 			}
 		}
-
+		
+		@include max-screen(375px){
+			max-width: none;
+		} 
 	}
 	input, textarea{
 		width: 100%;
@@ -520,12 +550,23 @@ form{
 		font-size: 25px;
 		line-height: 30px;
 		border-radius: 5px;
-		 border: solid 1px rgba(#000000, .15);
+	 	border: solid 1px rgba(#000000, .15);
 		@include 	placecolor(rgba(#000, .35));
 		font-family: $thin;
+
+		@include max-screen(375px){
+			padding: 10px 15px;
+			max-width: none;
+			font-size: 18px;
+			line-height: 23px;
+		} 
 	}
 	input{
 		max-width: 301px;
+
+		@include max-screen(375px){
+			max-width: none;
+		} 
 	}
 	textarea{
 		max-width: 536px;	
@@ -597,6 +638,13 @@ form{
   	margin-bottom: 0;
   }
 
+  @include max-screen(375px){
+  	padding: 10px 15px;
+  	max-width: none;
+  	font-size: 18px;
+  	line-height: 23px;
+ }  
+
 }
 .ui-selectmenu-button.ui-button.ui-selectmenu-button-open{
 			border-bottom-color: transparent;
@@ -625,6 +673,12 @@ form{
 		font-size: 25px;
 		line-height: 30px;
 		font-family: $light;
+
+		@include max-screen(375px){
+  	padding: 10px 15px;
+  	font-size: 18px;
+  	line-height: 23px;
+  } 
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
@@ -639,6 +693,10 @@ form{
 }
 .ui-selectmenu-icon.ui-icon{
 	margin-top: 10px;
+
+	@include max-screen(375px){
+		margin-top: 6px;
+	}  
 }
 .text{
 	&-center{
@@ -666,6 +724,9 @@ form{
 	.heading{
 		@include col();
 		@include size(7);
+		@include size-mdr(8);
+		@include size-sm(9);
+		@include size-xs(10);
 	}
 	h2{
 		margin-bottom: 10px;
@@ -673,13 +734,22 @@ form{
 		font-size: 30px;
 		line-height: 36px;
 		color: #393939;
+
+		@include max-screen(375px){
+			font-size: 26px;
+			line-height: 32px;
+		}  
 	}
 	.wrapper{
 		justify-content: flex-end;
+ 
 	}
 	.caption-link{
 		color: $accent;
 	}
+	@include max-screen(480px){
+		min-height: 550px;
+	}  
 }
 .link-backward{
 	position: relative;

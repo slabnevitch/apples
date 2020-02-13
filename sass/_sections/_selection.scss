@@ -36,6 +36,14 @@
 	h2{
 		margin-bottom: 42px;
 		text-align: left;
+
+		@include max-screen(768px){
+			margin-bottom: 30px;
+			
+		}  
+		@include max-screen(375px){
+			margin-bottom: 20px;
+		}
 	}
 	.ui-selectmenu-button.ui-button{
 		max-width: 274px;
@@ -52,6 +60,10 @@
 .product-slider{
 	.owl-nav.disabled + .owl-dots{
 		margin-top: 85px;
+
+		@include max-screen(992px){
+			margin-top: 30px;
+		}  
 	}
 
 
@@ -73,6 +85,13 @@
 	img{
 		width: auto;
 		@include absolute-center;
+	}
+
+	@include max-screen(480px){
+		height: 206px;
+	}  
+	@include max-screen(375px){
+		height: 150px;
 	}
 }
 .product-color-select{

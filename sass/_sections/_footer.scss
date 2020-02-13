@@ -45,6 +45,9 @@
 		@include max-screen(1450px){
 			margin-bottom: 30px;
 		}  
+		@include max-screen(576px){
+			margin-bottom: 10px;
+		}
 	}
 	&__bottom{
 		display: -webkit-flex;
@@ -199,6 +202,9 @@
 				display: none;
 			}  
 		}
+		@include max-screen(480px){
+			margin-bottom: 15px;
+		}  
 	}
 	.footer-contacts__logo{
 		margin-top: 40px;
