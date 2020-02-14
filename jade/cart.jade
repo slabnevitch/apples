@@ -1,7 +1,10 @@
-extends _misc/main
+extends _misc/main-no-header-and-footer
 
 block title
 	| Cart page
+
+block header
+	include _sections/header
 
 block content
 	section.breadcrumbs
@@ -119,6 +122,11 @@ block content
 								span.asterisk *
 
 							a(href="#").appl-link #[span.asterisk *] Що таке CVV?
+
+block footer
+	.footer.under-sticky-footer
+		include _includes/footer-content
+
 block blured-footer
 	.sticky-footer
 		.wrapper
@@ -134,3 +142,5 @@ block blured-footer
 
 block page-scripts
 	script(src="js/libs/jquery-ui/jquery-ui.min.js")
+	script(src='js/appl-map.js')
+	script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_NAmCu9dm16a9i0oeX0T6rBQFgObeiZA&callback=initMap" async defer)

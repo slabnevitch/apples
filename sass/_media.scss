@@ -40,6 +40,19 @@
 	
 }
 	
+@media only screen and (max-width : 1200px){
+	.macbook,
+	.macbook-air,
+	.imac,
+	.imac-pro,
+	.mac-pro,
+	.mac-mini{
+		min-height: 600px;
+		.promo-wrapper{
+			background-size: auto 66%;
+		}
+	}
+}
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px){
 /**/
@@ -48,6 +61,25 @@
 	
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px){
+
+	.macbook,
+	.macbook-air,
+	.imac,
+	.imac-pro,
+	.mac-pro,
+	.mac-mini{
+		min-height: 500px;
+		.promo-wrapper{
+			background-size: auto 55%;
+		}
+	}
+
+	.toggle-mnu{
+		span, span:after, span:before{
+			transition: none;
+
+		}
+	}
 
 	/*Disable Animation on Mobile Devices*/
 	.animated{
@@ -78,6 +110,24 @@
 	
 
 /* Extra Small Devices, Phones */
+@media only screen and (max-width : 576px){
+	.macbook,
+	.macbook-air,
+	.imac,
+	.imac-pro,
+	.mac-pro,
+	.mac-mini{
+		min-height: 400px;
+
+	}
+	.macbook{
+		// min-height: 400px;
+		.promo-wrapper{
+				background-size: 120% auto;
+		}
+		
+	}
+}
 @media only screen and (max-width : 480px){
 	.footer-contacts .footer-contacts__logo{
 		margin-top: 15px;

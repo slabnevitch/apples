@@ -15,10 +15,17 @@
 		font-size: 18px;
 	}
 	@include max-screen(992px){
-		padding-bottom: 40px;
+		padding-bottom: 0;
 	}
-	@include max-screen(480px){
-		padding-bottom: 95px;
+
+	&.under-sticky-footer{
+		padding-bottom: 120px;
+		@include max-screen(992px){
+			padding-bottom: 50px;
+		}
+		@include max-screen(480px){
+			padding-bottom: 90px;
+		}
 	}
 }
 .footer-logo-block,
@@ -200,6 +207,9 @@
 		br{
 			@include max-screen(480px){
 				display: none;
+			}
+			@include max-screen(320px){
+				display: block;
 			}  
 		}
 		@include max-screen(480px){

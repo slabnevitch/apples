@@ -27,6 +27,7 @@
 
 				@include max-screen(992px){
 					margin-right: 0;
+					margin-bottom: 18px;
 				}  
 			}
 
@@ -117,9 +118,15 @@
 		font-size: 24px;
 		line-height: 29px;
 
-		@include max-screen(320px){
-			font-size: 22px;
+		@include max-screen(576px){
+			font-size: 20px;
 			line-height: normal;
+		}
+		@include max-screen(375px){
+			font-size: 23px;
+		} 
+		@include max-screen(320px){
+			font-size: 20px;
 		}  
 	}
 

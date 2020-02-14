@@ -30,11 +30,12 @@
 	}
 }
 .about-right{
-		@include 	col();
-		@include 	size(4);
-		@include 	size-superLg(6);
-		@include 	size-sm(10);
+		@include col();
+		@include size(4);
 		@include shift-left(1);
+		@include size-superLg(6);
+		@include size-sm(10);
+		@include shift-sm-left(0);
 
 }
 .feedback-right{

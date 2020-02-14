@@ -47,6 +47,13 @@
 	}
 	.ui-selectmenu-button.ui-button{
 		max-width: 274px;
+
+		@include max-screen(375px){
+			padding: 10px 15px;
+			max-width: none;
+			font-size: 18px;
+			line-height: 23px;
+		}
 	}
 	.app-opt-button{
 		max-width: none;

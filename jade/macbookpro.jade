@@ -22,7 +22,8 @@ block content
 				h2 MacBook Pro 2018
 				a(href="#").caption-link Підібрати MacBook Pro
 
-		img.promo-img(src="img/macbookpro-page/macbook-pro.jpg", srcset="img/macbookpro-page/macbook-pro@2x.jpg 2x" alt="alt")
+		.promo-wrapper(style="background-image: url(img/macbookpro-page/macbook-pro.jpg); background-image: -webkit-image-set(url(img/macbookpro-page/macbook-pro.jpg) 1x, url(img/macbookpro-page/macbook-pro@2x.jpg) 2x);")
+		//- img.promo-img(src="img/macbookpro-page/macbook-pro.jpg", srcset="img/macbookpro-page/macbook-pro@2x.jpg 2x" alt="alt")
 	
 	section.features.power.light-black-bg
 		.wrapper.features-title-wrapper
@@ -87,7 +88,7 @@ block content
 					.features-item
 						.features-item__text 4х Thunderbolt 3 (USB-C)
 
-	section.screen-and-sound.light-black-bg
+	//- section.screen-and-sound.light-black-bg
 		.screen-and-sound__img
 			img(src="img/macbookpro-page/screen-and-sound.jpg", srcset="img/macbookpro-page/screen-and-sound@2x.jpg 2x" alt="alt")
 
@@ -117,10 +118,10 @@ block content
 							.features-item__title Radeon Pro 560X 4GB GDDR5 Intel UHD Graphics 630
 							.features-item__text З функцією автоматичного перемкнення
 	
-	.rotate-img.light-black-bg
+	//- .rotate-img.light-black-bg
 		img(src="img/macbookpro-page/mac-rotate.png", srcset="img/macbookpro-page/mac-rotate@2x.png 2x" alt="alt")
 
-	section.features.others.light-black-bg
+	//- section.features.others.light-black-bg
 		.wrapper.features-title-wrapper
 			h2 А також…
 		.wrapper.features-columns-wrapper
@@ -131,7 +132,7 @@ block content
 							.features-item__title= item.title
 							.features-item__text= item.text
 
-	section.mac-book-price.light-black-bg
+	//- section.mac-book-price.light-black-bg
 		img.img-resp-center(src="img/macbookpro-page/ScreenShot2019-09-16at12.49.47.jpg", srcset="img/macbookpro-page/ScreenShot2019-0916at12.49.47@2x@2x.jpg 2x" alt="alt")
 	
 		.mac-book-price__bottom.invert
