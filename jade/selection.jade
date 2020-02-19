@@ -1,0 +1,245 @@
+extends _misc/main-no-header-and-footer
+
+block title
+	| Selection page
+
+block header
+	include _sections/header
+
+block content
+	- var list = ['Mac', 'MacBook', 'MacBook Pro', 'Вибір моделі'];
+	section.breadcrumbs
+		.wrapper
+			ul.appl-breadcrumbs
+				each item in list
+					li
+						a(href="#")= item
+	section.selection
+		.wrapper.selection-wapper
+			.product-display#selection-sticky
+				.sticky-inner
+					.product-slider.owl-carousel.owl-theme
+						- for (var i=0; i < 5; i++)
+							.product-slide
+								img.promo-img(src="img/selection-page/lap-top-apple-macbook-pro-touch-bar-2019-13-inchs-i5-8gb-256gb.jpg", srcset="img/selection-page/lap-top-apple-macbook-pro-touch-bar-2019-13-inchs-i5-8gb-256gb@2x.jpg 2x" alt="alt")
+						//- .product-slide
+							img(src="https://image.tmdb.org/t/p/original/5SilmJEs9PzpVvsZlVt5sI54d6x.jpg", alt="")
+			
+			.product-info
+				h2 MacBook Pro
+				form(action="#")
+					.app-block-with-title
+						h4 Модель та рік
+						select(name="#")
+							- for (var i= 0; i < 4; i++)
+								option(value="") MacBook Pro 2019
+
+					.app-block-with-title
+						h4 Дiагональ
+						.appl-tags
+							label
+								input(type="radio" name="model-year" checked)
+								span.app-opt-button 13''
+							label
+								input(type="radio" name="model-year")
+								span.app-opt-button 15''
+
+
+					.app-block-with-title
+						h4 Колір
+						.product-color-select
+							- var colors = ['e8e8e8', '6a6a6a', 'ddc88f']
+							each color, ind in colors
+								if ind == 0
+									label.color-label
+										input(type="radio", name="color-select" value=""+ind checked)
+										span.fake-input-color
+											span(style="background-color: #"+color+";")
+								else
+									label.color-label
+										input(type="radio", name="color-select" value=""+ind)
+										span.fake-input-color
+											span(style="background-color: #"+color+";")
+					
+					.app-block-with-title
+						h4 Дисплей
+						p Дисплей с диагональю 13,3 дюйма, подсветкой LED и технологией IPS; разрешение 2560×1600 пикселей (227 пикселей/​дюйм) обеспечиваетвысокое качество цветопередачи (миллионы цветов)
+
+						p Другие поддер­живаемые разрешения:
+
+						p 1680×1050
+
+						p 1440×900
+
+						p 1024×640
+
+						p Яркость 500 кд/﻿м²
+
+						p Широкий цветовой охват (P3)
+
+						p Технология True Tone
+
+					.app-block-with-title
+						h4 Процесор
+						.app-opt-button.app-opt-button--pd-20
+							p 4-ядерный процессор Intel Core i5 с тактовой частотой 1,4 ГГц (ускорение Turbo Boost до 3,9 ГГц) и памятью eDRAM объёмом 128 МБ
+						.app-opt-button.app-opt-button--pd-20
+							p 8-ядерный процессор Intel Core i9 с тактовой частотой 2,3 ГГц (ускорение Turbo Boost до 3,9 ГГц) и памятью eDRAM объёмом 128 МБ
+						.app-opt-button.app-opt-button--pd-20
+							p 8-ядерный процессор Intel Core i9 с тактовой частотой 2,3 ГГц (ускорение Turbo Boost до 4,8 ГГц) и 16 МБ общей кэш-﻿памяти третьего уровня 
+
+					.app-block-with-title
+						- var values = ['256 ГБ', '512 ГБ', '1 ТБ', '1 ТБ', '4 ТБ']
+						h4 Накоплювачі SSD
+						
+						.appl-tags
+							each val, ind in values
+								if ind == 0
+									label
+										input(type="radio" name="ssd" checked)
+										span.app-opt-button= val
+								else
+									label
+										input(type="radio" name="ssd")
+										span.app-opt-button= val
+
+
+					.app-block-with-title
+						h4 Оперативна пам’ять
+						.appl-tags
+							label
+								input(type="radio" name="ddr" checked)
+								span.app-opt-button 16 ГБ
+							label
+								input(type="radio" name="ddr")
+								span.app-opt-button 32 ГБ
+
+					.app-block-with-title.graphics
+						h4 Графічний процесор
+						p Вбудований графический процессор 
+							br
+							| Intel UHD Graphics 630
+						- for (var i=0; i < 2; i++)
+							.app-opt-button
+								p Radeon Pro 555X с 4 ГБ памяти GDDR5
+						.app-opt-button.app-opt-button--pd-20
+							p Radeon Pro Vega 16 с 4 ГБ памяти HBM2
+						.app-opt-button.app-opt-button--pd-20
+							p Radeon Pro Vega 20 с 4 ГБ памяти HBM2
+
+					.app-block-with-title.graphics
+						h4 Зарядка та порти
+						- var power1 = ['3.5 мм', 'Четыре порта Thunderbolt 3 (USB-﻿C):'];
+						ul
+							each item in power1
+								li= item
+
+
+						- var power2 = ['Зарядка устройств', 'DisplayPort', 'Thunderbolt (до 40 Гбит/﻿с)', 'USB 3.1 второго поколения (до 10 Гбит/с)'];
+						
+						ul
+							each item in power2
+								li= item
+
+					.app-block-with-title
+						h4 Клавіатура та трекпад
+						- var clava = ['Полноразмерная клавиатура с подсветкой:', '64 (США) или 65 (ISO) клавиш, включая 4 клавиши со стрелками', 'Панель Touch Bar со встроенным датчиком Touch ID', 'Датчик внешней освещённости', 'Трекпад Force Touch для точного управления курсором', 'и распознавания касаний; поддерживает нажатия с усилием,', 'определение скорости действий, рисование с учётом', 'определение скорости действий, рисование с учётом', 'силы нажатия и жесты Multi-Touch'];
+						ul
+							each item in clava
+								li= item
+
+					.app-block-with-title
+						h4 З’вязок
+
+						- var svyaz1 = ['Wi-Fi', 'Подключение к сетям Wi‑Fi стандарта 802.11ac', 'Совместимость со стандартом IEEE 802.11a/b/g/n'];
+
+						ul
+							each item in svyaz1
+								li= item
+
+						- var svyaz2 = ['Bluetooth', 'Беспроводная технология Bluetooth 5.0'];
+
+						ul
+							each item in svyaz2
+								li= item
+
+					.app-block-with-title
+						h4 Камера
+						p HD-камера FaceTime 720p
+					
+					.app-block-with-title
+						h4 Відео
+
+						p Поддержка полного штатного разрешения на встроенном дисплее и высокое качество цветопередачи (миллионы цветов). Дополнительно можно подключить:
+
+						p До двух дисплеев с разрешением 5120×2880 пикселей, частотой 60 Гц и высоким качеством цветопередачи (более миллиарда цветов) До четырёх дисплеев с разрешением 4096×2304 пикселя, частотой 60 Гц и высоким качеством цветопередачи (более миллиарда цветов)
+
+						p Цифровой видеовыход Thunderbolt 3
+
+						p Штатный видеовывод по стандарту DisplayPort через интерфейс USB-C
+							br 
+							| Видеовывод на устройства с портами VGA, HDMI, DVI
+							br
+							| и Thunderbolt 2 — через дополнительные адаптеры (продаются отдельно)
+
+
+					.app-block-with-title
+						h4 Аудіо
+						- var audio = ['Стерео­динамики с широким динамическим диапазоном', 'Три микрофона', 'Выход 3,5 мм для наушников'];
+
+						ul
+							each item in audio
+								li= item
+
+					.app-block-with-title
+						h4 Акумулятор
+						p Встроенный литий-полимерный аккумулятор ёмкостью 58 Вт∙ч
+							br
+							| Адаптер питания USB-C мощностью 61 Вт
+
+
+
+						p До 10 часов работы в интернете по беспро­водной связи
+
+						p До 10 часов при воспро­изведении фильмов из iTunes
+
+						p До 30 дней в режиме ожидания
+					
+					.app-block-with-title
+						h4 Розміри та вага
+						- var acum = ['Толщина: 1,49 см', 'Длина: 30,41 см', 'Ширина: 21,24 см', 'Вес: 1,37 кг3'];
+						
+						ul
+							each item in acum
+								li= item
+					
+					.app-block-with-title
+						h4 Опероаційна система
+						p macOS
+
+						p macOS — операционная система, которая стоит за всем, что вы делаете на Mac. В macOS Mojave добавлены новые функции, вдохновлённые продвинутыми пользователями и полезные всем. Открывайте новые возможности с каждым кликом.
+
+	include _sections/accessories
+
+block footer
+	.footer.under-sticky-footer
+		include _includes/footer-content
+
+block blured-footer
+	.sticky-footer
+		.wrapper
+			.overal-price
+				.overal-price__val 39 798 грн
+
+			.to-pay
+				a(href="#").button До кошику
+				a(href="#").appl-link Придбати у кредит
+
+		.header-overflow
+			.header-container.blured.blur
+block page-scripts
+	script(src="js/libs/owl/dist/owl.carousel.min.js")
+	script(src="js/libs/jquery-ui/jquery-ui.min.js")
+	script(src="js/libs/sticky-sidebar/dist/sticky-sidebar.min.js")
+	script(src='js/appl-map.js')
+	script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_NAmCu9dm16a9i0oeX0T6rBQFgObeiZA&callback=initMap" async defer)

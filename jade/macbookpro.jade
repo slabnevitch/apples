@@ -1,0 +1,155 @@
+extends _misc/main-no-header-and-footer
+
+block title
+	| MacBook Pro 18 Page
+
+
+block header
+	include _sections/header-light-bl
+
+block content
+	.macbookpro-wrapper.light-black-bg
+		- var list = ['Mac', 'MacBook', 'MacBook Pro'];
+		section.breadcrumbs.breadcrumbs--bl
+			.wrapper
+				ul.appl-breadcrumbs.appl-breadcrumbs--bl
+					each item in list
+						li
+							a(href="#")= item
+		
+		section.macbookpro.invert.appl-std-sect.apple-product-promo-sect 
+			.wrapper-no-fl
+				.appl-heading.text-center
+					h2 MacBook Pro 2018
+					a(href="#").caption-link Підібрати MacBook Pro
+
+			.promo-wrapper(style="background-image: url(img/macbookpro-page/macbook-pro.jpg); background-image: -webkit-image-set(url(img/macbookpro-page/macbook-pro.jpg) 1x, url(img/macbookpro-page/macbook-pro@2x.jpg) 2x);")
+			//- img.promo-img(src="img/macbookpro-page/macbook-pro.jpg", srcset="img/macbookpro-page/macbook-pro@2x.jpg 2x" alt="alt")
+		
+		section.features.power
+			.wrapper.features-title-wrapper
+				h2 Потужність
+			.wrapper.features-columns-wrapper
+				.features-columns			
+					.features-column
+						.features-item
+							.features-item__title до 16GB
+							.features-item__text 16GB of 2400MHz DDR4 оперативної пам’яті
+
+					.features-column
+						.features-item
+							.features-item__title до 8 ядер
+							.features-item__text 2.6GHz 6-core Intel Core i7 
+								br
+								| з можливим разгіном до 5.0GHz
+
+					.features-column
+						.features-item
+							.features-item__title 3.2GB/s
+							.features-item__text  До 3.2GB/s швидкості читання SSD
+
+		section.thickness
+			img(src="img/macbookpro-page/thickness.jpg", srcset="img/macbookpro-page/thickness@2x.jpg 2x" alt="alt")
+
+
+		section.features.chars
+			.wrapper.features-title-wrapper
+				h2 Характеристики
+			.wrapper.features-columns-wrapper
+				- var chars1 = [{title: '34.93 cм', text: 'в ширину'}, {title: '24.07 cм', text: 'в довжину'}, {title: '1.55 cм', text: 'в товщину'}];
+
+				- var chars2 = [{title: '1.83 кг', text: 'вага'}, {title: '30 годин', text: 'в режимі очікування та 10 годин активної роботи'}, {title: 'macOS Mohave', text: ''}];
+				- var chars3 = ['802.11ac Wi-Fi', 'Bluetooth 5.0', ''];
+				.features-columns			
+					.features-column
+						each item in chars1
+							.features-item
+								.features-item__title= item.title
+								.features-item__text= item.text
+
+					.features-column
+						each item in chars2
+							.features-item
+								.features-item__title= item.title
+								.features-item__text= item.text
+
+					.features-column
+						each item in chars3
+							.features-item
+								.features-item__text= item
+
+						.features-item
+							.features-item__text 720p FaceTime 
+								br
+								| HD камера
+						.features-item
+							.features-item__text 3.5 mm 
+								br
+								| аудіо джек
+						.features-item
+							.features-item__text 4х Thunderbolt 3 (USB-C)
+
+		section.screen-and-sound
+			.screen-and-sound__img
+				img(src="img/macbookpro-page/screen-and-sound.jpg", srcset="img/macbookpro-page/screen-and-sound@2x.jpg 2x" alt="alt")
+
+			.features
+				.wrapper.features-title-wrapper
+					h2 Екран та звук
+				.wrapper.features-columns-wrapper
+					.features-columns.columns-2
+						.features-column
+							- var soundlist = ['15.4-дюймовий з технологією IPS та LED підсвіткою', 'більше мільйону кольорів', 'технологія True Tone', '220 пікселей на дюйм', 'яскравість 500 nits']; 
+							.features-item
+								.features-item__title 2880 на 1800 пікселей
+								.features-item__text
+									ul
+										each item in soundlist
+											li= item
+
+						.features-column
+							.features-item
+								.features-item__title до 8 ядер
+								.features-item__text 2.6GHz 6-core Intel Core i7 
+									br
+									| з можливим разгіном до 5.0GHz
+
+						.features-column
+							.features-item
+								.features-item__title Radeon Pro 560X 4GB GDDR5 Intel UHD Graphics 630
+								.features-item__text З функцією автоматичного перемкнення
+		
+		//- .rotate-img.light-black-bg
+			img(src="img/macbookpro-page/mac-rotate.png", srcset="img/macbookpro-page/mac-rotate@2x.png 2x" alt="alt")
+
+		
+
+		section.features.others(style="background-image: url(img/macbookpro-page/mac-rotate.png); background-image: -webkit-image-set(url(img/macbookpro-page/mac-rotate.png) 1x, url(img/macbookpro-page/mac-rotate@2x.png) 2x);")
+			.wrapper.features-title-wrapper
+				h2 А також…
+			.wrapper.features-columns-wrapper
+				.features-columns.features-columns--multi
+					- var others = [{title: 'Touch Bar', text: 'який змінюється в залежності від задачі та може кастомізуватися користувачем'}, {title: 'Touch ID', text: 'захищена щвидка авторизація або можливість оплати в інтернеті без паролей'}, {title: 'Механізм Butterfly', text: 'комфорт та тиша на Вашому рабочому місці навіть при інтенсивній роботі'}, {title: 'Force Touch Trackpad', text: 'великий тракпад для комфортної роботи та спеціальних жестів'}, {title: 'Алюмінієвий корпус', text: 'надійна моноблочна конструкція з якісного матеріалу'}]; 
+					each item in others
+						.features-item
+								.features-item__title= item.title
+								.features-item__text= item.text
+
+		section.mac-book-price
+			img.img-resp-center(src="img/macbookpro-page/ScreenShot2019-09-16at12.49.47.jpg", srcset="img/macbookpro-page/ScreenShot2019-0916at12.49.47@2x@2x.jpg 2x" alt="alt")
+		
+			.mac-book-price__bottom.invert
+				.appl-heading.text-center
+					h2 MacBook Pro 2018
+					p ціна від 19 899 грн
+
+					a(href="#").button Підібрати
+	
+	include _sections/accessories
+
+block footer
+	include _sections/footer
+
+block page-scripts
+	script(src='js/appl-map.js')
+	script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_NAmCu9dm16a9i0oeX0T6rBQFgObeiZA&callback=initMap" async defer)

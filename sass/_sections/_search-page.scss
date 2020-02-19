@@ -1,0 +1,145 @@
+.search-results{
+
+}
+.search-results-left{
+	width: 316px;
+	padding-left: 8px;
+	flex: 0 0 auto;
+	min-height: 725px;
+	padding-top: 60px;
+	border-right: 1px solid $gray-line;
+	
+
+	h2{
+		margin-bottom: rem(80);
+		text-align: left;
+
+		@include max-screen(768px){
+			margin-bottom: 20px;
+		}  
+	}
+	.appl-search-row{
+		padding-right: 87px;
+		margin-bottom: rem(80);
+
+		label{
+			padding-right: 35px;
+		}
+
+		.popup-searc-icon{
+			img{
+				height: 60%;
+				width: 60%;
+				
+			}
+
+		}
+		@include max-screen(960px){
+			padding-right: 16px;
+		}  
+		@include max-screen(768px){
+			margin-bottom: 20px;
+			padding-right: 0;
+		}  
+	}
+
+	@include max-screen(960px){
+		width: 250px;
+	}
+	@include max-screen(960px){
+		width: 100%;
+		padding-right: 8px;
+	}
+	@include max-screen(768px){
+			min-height: 1px;
+			padding-top: 20px;
+			border-right: none;
+	}
+
+}
+.search-results-right{
+	flex: 1 1 auto;
+	padding-right: 8px;
+
+	.product-row{
+		padding-left: rem(103);
+
+		&__price{
+			margin-bottom: 24px;
+		}
+
+		.sect-crumbs{
+			padding: 0;
+			text-align: left;
+			li{
+
+					a{
+						font-family: $thin;
+
+						@include max-screen(1100px){
+							font-size: 18px;
+						}  
+					}
+					&:after{
+						@include max-screen(1100px){
+							width: 8px;
+							height: 8px;
+							margin-left: 5px;
+							
+						}  
+					}
+
+					@include max-screen(1100px){
+						margin-right: 15px;
+					}  
+			}
+		}
+
+		@include max-screen(1100px){
+			padding-left: 30px;
+		}  
+		@include max-screen(992px){
+			padding-bottom: 10px;
+		}
+	}
+}
+.search-results__inner{
+	min-height: 769px;
+}
+.filter-row{
+	border-bottom: 1px solid $gray-line;
+	.ui-selectmenu-button.ui-button{
+		max-width: 230px;
+		padding-top: 16px;
+		padding-bottom: 16px;
+		padding-left: 0;
+		border-color: transparent;
+		font-size: 18px;
+		line-height: normal;
+
+		&:hover{
+			border-color: transparent;
+			&:after{
+				border-color: transparent;
+			}
+		}
+
+		@include max-screen(768px){
+			max-width: none;
+			padding-right: 5px;
+		}  
+	}
+
+	.ui-selectmenu-icon.ui-icon{
+		margin-top: 5px;
+	}
+}
+.ui-menu.mini .ui-menu-item-wrapper{
+	padding-top: 16px;
+		padding-bottom: 16px;
+		font-size: 18px;
+		line-height: normal;
+}
+.mini.ui-widget.ui-widget-content{
+	border-color: $gray-line;
+}

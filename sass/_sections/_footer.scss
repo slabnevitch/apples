@@ -1,0 +1,251 @@
+.footer{
+	position: relative;
+	padding-top: 60px;
+	padding-bottom: 77px;
+	background-color: #fff;
+	z-index: 1;
+	&-no-pd{
+		padding-top: 0;
+	}
+
+	@include max-screen(1100px){
+		font-size: 16px;
+	}  
+	@include max-screen(1100px){
+		font-size: 18px;
+	}
+	@include max-screen(992px){
+		padding-bottom: 0;
+	}
+
+	&.under-sticky-footer{
+		padding-bottom: 120px;
+		@include max-screen(992px){
+			padding-bottom: 50px;
+		}
+		@include max-screen(480px){
+			padding-bottom: 90px;
+		}
+	}
+}
+.footer-logo-block,
+.footer-menu,
+.footer-map-wrapper,
+.footer-contacts{
+	@include col();
+
+	@include max-screen(992px){
+		margin-bottom: 30px;
+	}  
+}
+.footer-logo-block{
+	@include size(3);
+	@include size-first(2);
+	@include size-mdr(5);
+	@include size-xs(10);
+	padding-top: 12px;
+
+	.appl-logo{
+		margin-bottom: 70px;
+		max-width: 260px;
+
+		@include max-screen(1450px){
+			margin-bottom: 30px;
+		}  
+		@include max-screen(576px){
+			margin-bottom: 10px;
+		}
+	}
+	&__bottom{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		align-items: center;
+
+		p{
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-right: 26px;
+			@include max-screen(1450px){
+				margin-right: 0;
+				margin-bottom: 15px;
+			}
+			@include max-screen(992px){
+				margin-right: 26px;
+				margin-bottom: 0;
+			}
+			@include max-screen(768px){
+				margin-right: 0;
+				margin-bottom: 15px;
+			}
+		}
+		.button{
+			@include max-screen(1100px){
+				font-size: 14px;
+				line-height: normal;
+			}  
+			@include max-screen(1100px){
+				font-size: 20px;
+				line-height: 24px;
+			}
+		}
+
+		@include max-screen(1450px){
+			display: block;
+		}  
+		@include max-screen(992px){
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+		}
+		@include max-screen(768px){
+			display: block;
+		}
+	}
+
+	@include max-screen(1100px){
+		padding-right: 30px;
+	}  
+	@include max-screen(992px){
+		padding-right: 0;
+	}
+}
+
+.footer-menu{
+	padding-top: 12px;
+	@include size(3);
+	@include size-mdr(5);
+	@include size-xs(10);
+	ul{
+		position: relative;
+		left: -44px;
+		// column-count: 2;
+		column-width: 135px;
+		column-gap: 0;
+		li{
+			list-style-type: none;
+			margin-bottom: 17px;	
+			a{
+				// font-size: 18px;
+				text-decoration: none;
+				color: #000;
+				transform: opacity .5s;
+
+				&:hover{
+					opacity: .4;
+				}
+			}
+		}
+
+		@include max-screen(1450px){
+			left: 0;
+			padding-left: 30px;
+		}  
+		@include max-screen(1100px){
+			padding-left: 0;
+		}
+		@include max-screen(992px){
+			padding-left: 0;
+			column-width: auto;
+			column-count: 3;
+			column-gap: 15px;
+		}
+		@include max-screen(768px){
+			column-count: 2;
+		}
+		@include max-screen(576px){
+			column-count: 3;
+		}
+		@include max-screen(375px){
+			column-count: 2;
+
+		}
+	}
+
+}
+.footer-map-wrapper{
+	@include size(2);
+	@include size-first(3);
+	@include size-mdr(5);
+	@include size-xxs(10);
+	// @include size-xs(10);
+}
+.footer-map{
+	position: relative;
+	width: 260px;
+	height: 260px;
+	border-radius: 50em;
+	background:  url(../img/map-fallback.png) 0 0 no-repeat;
+	background-size: cover;
+
+	&:before{
+		content: '';
+		display: block;
+		position: absolute;
+		box-sizing: border-box;	
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 50em;
+		border: 10px solid rgba(#fff, .65);
+		z-index: 1;
+		 pointer-events: none;
+	}
+	@include max-screen(1450px){
+		margin-left: auto;
+		margin-right: auto;
+	}  
+	@include max-screen(992px){
+		margin-left: 0;
+		margin-right: 0;
+	}
+	@include max-screen(480px){
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+}
+.footer-contacts{
+	padding-left: rem(68);
+	padding-top: 12px;
+	@include size(2);
+	@include size-mdr(5);
+	@include size-xxs(10);
+	
+	p{
+		margin-bottom: 35px;
+		margin-top: 0;
+
+		br{
+			@include max-screen(480px){
+				display: none;
+			}
+			@include max-screen(320px){
+				display: block;
+			}  
+		}
+		@include max-screen(480px){
+			margin-bottom: 15px;
+		}  
+	}
+	.footer-contacts__logo{
+		margin-top: 40px;
+		img{
+			max-width: 100%;
+		}
+	}
+	@include max-screen(992px){
+		padding-left: 0;
+	}  
+	@include max-screen(576px){
+		padding-left: 30px;
+	}
+	@include max-screen(480px){
+		padding-left: 0;
+	}
+}

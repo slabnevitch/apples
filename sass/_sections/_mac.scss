@@ -1,0 +1,188 @@
+.apple-product-promo-sect{
+	h2, .sect-crumbs{
+		position: relative;
+		z-index: 1;
+	}
+	h2{
+		@include max-screen(576px){
+			margin-bottom: 15px;
+		}  
+	}
+	.promo-img{
+		@include absolute-center;
+		top: auto;
+		transform: translate(-50%, 0);
+		bottom: 0;
+		z-index: 0;
+	}
+
+	.promo-wrapper{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-position: center bottom;
+		background-repeat: no-repeat;
+	}
+	
+}
+.macbook{
+	min-height: 756px;
+	.promo-wrapper{
+		background-size: auto 60%;
+
+		@include max-screen(576px){
+			background-size: 90% auto;
+		}  
+	}
+	.promo-img{
+		// width: 100%;
+		max-width: 1175px;
+	}
+}
+.macbook-air{
+	min-height: 768px;
+
+	.promo-wrapper{
+		background-size: auto 463px;
+	}
+
+	.promo-img{
+		max-width: 819px;
+		bottom: 50px;
+	}
+}
+.imac{
+	min-height: 900px;
+	background-color: #fafafa;
+	
+	.promo-wrapper{
+		background-size: auto 608px;
+	}
+
+	.promo-img{
+		max-width: 639px;
+		bottom: 50px;
+	}
+}
+.imac-pro{
+	min-height: 900px;
+	background-color: #1a1a1a;
+
+	.promo-wrapper{
+		background-size: auto 727px;
+	}
+
+	.promo-img{
+		max-width: 1009px;
+	}
+}
+.mac-pro{
+	min-height: 900px;
+	 background-color: #f2f2f2;
+
+
+	.promo-wrapper{
+		background-size: auto 735px;
+	}
+	.promo-img{
+		max-width: 1100px;
+	}
+}
+.mac-mini{
+	min-height: 900px;
+  background-color: #0a0b10;
+
+	.promo-wrapper{
+		background-size: auto 630px;
+	}
+	.promo-img{
+		max-width: 2500px;
+	}
+}
+.mac-accessories{
+	padding-top: 	rem(108);
+
+	
+	.wrapper{
+		// outline: 1px solid;
+		position: relative;
+		justify-content: flex-end;	
+		min-height: 526px;
+
+	}
+	.mac-accessories__bg{
+		position: absolute;
+		left: 0;
+		top: 0;
+		// left: -200px;
+		// top: -100px;
+		right: auto;
+		width: 100%;
+		// width: 1400px;
+		// height: calc(100% + 100px);
+		height: 100%;
+		transform: translateX(-230px);
+		background-repeat: no-repeat;	
+		background-position: center 0;
+		background-size: auto;
+		z-index: 0;
+
+		@include max-screen(1450px){
+			transform: translateX(-150px);
+		} 
+		@include max-screen(1200px){
+			transform: translateX(0);
+		}  
+		@include max-screen(768px){
+			background-position: -200px 0;
+		}  
+		@include max-screen(576px){
+			background-position: -300px 0;
+		}  
+	}
+
+	h2{
+		padding-left: 0;
+		padding-right: 0;	
+		max-width: 150px;	
+		margin-bottom: 10px;	
+		width: auto;	
+		color: #393939;
+		font-size: 30px;
+		line-height: 36px;	
+		text-align: 	left;
+	}
+	.appl-heading{
+		@include 	col();
+		@include 	size(9);
+	}
+	.sect-crumbs{
+		padding-left: 0;
+		padding-right: 0;	
+		text-align: 	left;
+		li{
+				&:after{
+					display: none;	
+				}
+			a{
+				font-size: 18px;	
+			}
+		}
+	}
+	// @include max-screen(768px){
+	// 	height: 500px;
+	// }  
+}
+.macbook,
+.macbook-air,
+.imac,
+.imac-pro,
+.mac-pro,
+.mac-mini{
+	// min-height: 500px;
+	.promo-wrapper{
+		// background-size: auto 60%;
+	}
+}

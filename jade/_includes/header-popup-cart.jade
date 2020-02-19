@@ -1,0 +1,23 @@
+.appl-header-popup.cart-popup.animated.fadeOutDown
+	.appl-popup-header
+		.appl-popup-title Корзина
+
+	- var prods = [{name: 'MacBook Pro', src: 'lap-top-apple-macbook-pro-touch-bar-2019-13-inchs-i5-8gb-256gb', srcset: 'lap-top-apple-macbook-pro-touch-bar-2019-13-inchs-i5-8gb-256gb@2x'}, {name: 'Apple TV', src: 'kisspng-apple-tv-4k-television-clip-art-apple-tv-4k-5b45b2002b7660.430603791531294208178', srcset: 'kisspng-apple-tv-4k-television-clip-art-apple-tv-4k-5b45b2002b7660.430603791531294208178@2x'}]
+	
+	.appl-header-popup__body
+		each prod in prods
+			.appl-header-popup__item
+				.appl-header-popup__img
+					img(src="img/header-popups/"+prod.src+".jpg" srcset="img/header-popups/"+prod.srcset+".jpg 2x" alt="alt")
+				
+				.appl-header-popup__text
+					.appl-header-popup__name= prod.name
+					.appl-header-popup__price 19 899 грн
+					a(href="#").appl-header-popup__link Підібрати
+
+				a(href="#").appl-edit-icon
+				a(href="#").appl-recycler-icon
+					
+	.appl-header-popup__footer
+		a(href="#") Показати всі
+

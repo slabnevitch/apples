@@ -1,0 +1,22 @@
+extends _misc/main-no-header-and-footer
+
+block title
+	| About page
+
+block header
+	include _sections/header
+
+block content
+	section.error.sect-pd-60
+		.wrapper
+			.error-left
+				h1 404
+				p Упс! Щось не так…
+				a(href="#").link-backward.appl-link Назад
+
+
+			.error-right
+				p Мабуть ви шукали MacBook Air? #[a(href="#") MacBook Air?]
+				.thanking-img
+					img(src="img/error-page/error-img.jpg" srcset="img/error-page/error-img@2x.jpg 2x")
+				
