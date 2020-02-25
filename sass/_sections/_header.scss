@@ -189,10 +189,10 @@
 		a{
 			text-decoration: none;
 			color: #000;
-			transform: opacity .5s;
+			transition: color .3s;
 
 			&:hover{
-				opacity: .4;
+				color: $accent;
 			}
 
 			@include max-screen(768px){
@@ -304,7 +304,7 @@
 	}
 }
 .blur{
-  filter: blur(.8em);
+  filter: blur(.6em);
 
 }
 .blured{
@@ -349,10 +349,6 @@
   			position: absolute;
   			cursor: pointer;
   			right: 25px;
-
-  			@include max-screen( 375px){
-  					right: 0;	
-  			}	
   		}
   		.appl-edit-icon{
   			top: 16px;
@@ -360,10 +356,6 @@
   		.appl-recycler-icon{
   			top: 46px;
   		}
-
-  		@include max-screen( 375px){
-  				padding-right: 26px;
-  		}	
   		
   	}
 
@@ -426,8 +418,8 @@
 	transform: none;
 	left: 0;
 	right: 0;
-	top: 64px;
-	margin-top: 0;
+	top: 50px;
+	margin-top: 14px;
 	margin-left: 0;
 	max-height: calc(100vh - 64px);
 	overflow: auto;
@@ -504,13 +496,6 @@
 	padding-right: 16px;
 	padding-left: 19px;	
 	margin-bottom: 26px;
-	max-height: 300px;
-	overflow: auto;
-
-	@include max-screen( 768px){
-		overflow: visible;
-		max-height: none;
-	}	
 }
 .appl-header-popup__item{
 	display: -webkit-flex;

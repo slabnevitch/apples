@@ -175,10 +175,27 @@
 	// @include size-xs(10);
 }
 .footer-map{
+	position: relative;
 	width: 260px;
 	height: 260px;
 	border-radius: 50em;
+	background:  url(../img/map-fallback.png) 0 0 no-repeat;
+	background-size: cover;
 
+	&:before{
+		content: '';
+		display: block;
+		position: absolute;
+		box-sizing: border-box;	
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 50em;
+		border: 10px solid rgba(#fff, .65);
+		z-index: 1;
+		 pointer-events: none;
+	}
 	@include max-screen(1450px){
 		margin-left: auto;
 		margin-right: auto;

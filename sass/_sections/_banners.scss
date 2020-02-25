@@ -4,6 +4,7 @@
 	}
 }
 .appl-banner{
+	display: block;	
 	@include col();
 	padding-left: 27px;
 	padding-right: 27px;
@@ -11,14 +12,14 @@
 	text-decoration: none;
 
 	&--wide{
-		@include size(12);
+		@include size(10);
 		
 	}
 	&--top{
 		position: relative;
 		padding-bottom: rem(197);
 		padding-top: 48px;
-		background-image: url(../img/main-page/bg_headphones.svg), linear-gradient(177deg, #2c1655 45%, #262131 93%);
+		background-image: linear-gradient(177deg, #2c1655 45%, #262131 93%);
 		background-position: right bottom;
 		background-repeat: no-repeat;	
 		.appl-banner__title{
@@ -30,7 +31,23 @@
 			&:nth-child(2){
 				max-width: 900px;
 				opacity: .4;
+
+				@include max-screen(1200px){
+					max-width: 60%;
+				}
+				@include max-screen(576px){
+					max-width: none;
+
+				} 
 			}
+
+			@include max-screen(1200px){
+				max-width: 60%;
+			}  
+			@include max-screen(576px){
+				max-width: none;
+
+			}  
 
 		}
 		.appl-banner__img{
@@ -47,23 +64,79 @@
 				right: 0;
 				max-height: 100%;
 				max-width: 100%;
+
+				@include max-screen(576px){
+					position: static;
+				}
+			}
+
+			@include max-screen(1200px){
+				width: 405px;
+				height: 300px;
+			}  
+			@include max-screen(992px){
+				right: 0;
+			}
+			@include max-screen(800px){
+				width: 305px;
+				height: 200px;
+				top: 50%;
+				margin-top: -100px;
+			}
+			@include max-screen(576px){
+				position: relative;
+				top: 0;
+				margin-top: 30px;
 			}
 		}
 		.footnote{
 			position: absolute;
 			bottom: 13px;
 			left: 27px;
+
+			@include max-screen(576px){
+				background-color: #281E3A;
+			}  
 		}
+
+		&:before{
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: url(../img/main-page/bg_headphones.svg) right bottom no-repeat;
+			// background-size: cover;
+
+			@include max-screen(1200px){
+				background-size: auto 80%;
+			} 
+			@include max-screen(576px){
+				background-size: auto 50%;
+
+			}
+		}
+
 
 	}
 	&--half{
 		@include size(5);
+		@include size-mdr(10);
 		min-height: 625px;
 		.appl-banner__title{
 			margin-bottom: 20px;
 		}
+
+		@include max-screen(992px){
+			min-height: 400px;
+		}  
+		@include max-screen(768px){
+			min-height: 300px;
+		}  
 	}
-	&:nth-child(2){
+	&--ipad{
 		padding-top: 20px;
 		position: relative;
 		background-color: #f5f5f5;
@@ -86,7 +159,7 @@
 			transform: translate(-50%, 0);
 		}
 	}
-	&:nth-child(3){
+	&--iphone{
 		position: relative;
 		display: -webkit-flex;
 		display: -moz-flex;
@@ -104,6 +177,13 @@
 			left: 28px;
 			color: #fff;
 			font-size: 32px;
+
+			@include max-screen(576px){
+				font-size: 24px;
+			}
+			@include max-screen(480px){
+				font-size: 18px;
+			}  
 		}
 		img{
 			position: absolute;
@@ -111,7 +191,21 @@
 			right: 42px;
 			max-width: 42%;
 			max-height: 573px;
+
+			@include max-screen(992px){
+				max-height: 99%;
+			}  
+			@include max-screen(480px){
+				right: 0;
+			}
+			@include max-screen(375px){
+				right: -30px;
+			}
 		}
+
+		@include max-screen(375px){
+			overflow: hidden;
+		}  
 	}
 	&--watch{
 		position: relative;
@@ -121,13 +215,19 @@
 		background-repeat: no-repeat;
 		background-position: right center;
 		background-size: auto 100%;
+
 		.appl-banner__title{
 			position: relative;
+			display: inline-block;
 			z-index: 1;
 			margin-bottom: 20px;
 			color: #fff;
 			div{
 				color: #67C3D3;
+			}
+			@include max-screen(576px){
+				background-color: #009AB6;
+				padding: 5px;
 			}
 		}
 		.appl-banner__caption{
@@ -136,6 +236,11 @@
 			bottom: rem(77);
 			color: #fff;
 			font-size: 24px;
+
+			@include max-screen(576px){
+				background-color: #009AB6;
+				padding: 5px;
+			}  
 		}
 		.appl-banner__img{
 			position: absolute;
@@ -148,6 +253,10 @@
 				// @include ;
 			}
 		}
+
+		// @include max-screen(576px){
+		// 	background-position-x: 150%;
+		// }  
 
 	}
 	&--macbook{
@@ -176,8 +285,28 @@
 
 			img{
 				@include absolute-center;
+				@include max-screen(992px){
+					position: static;
+					transform: none;
+					display: inline-block;
+				} 
 			}
+
+			@include max-screen(992px){
+				position: static;
+				max-width: none;
+				height: auto;
+				// max-height: 293px;
+				margin-left: 0;
+				margin-right: 0;
+				margin-top: 40px;
+				text-align: right;
+			}  
 		}
+
+		@include max-screen(992px){
+			min-height: 1px;
+		}  
 	}
 	&--tv{
 		position: relative;
@@ -190,27 +319,67 @@
 		}
 		.appl-banner__img{
 			bottom: 0;
+
 		}
+
 	}
 	&--accessories{
 		padding-top: rem(96);
-		padding-left: rem(410);
+		// padding-left: rem(410);
 		min-height: 608px;
+		margin-bottom: 0;
 		background-position: center top;
 		background-repeat: no-repeat;
 		background-size: cover;
+
+
+		@include max-screen(1450px){
+			max-width: none;
+
+		}
+		@include max-screen(1200px){
+			max-width: none;
+		} 
+		@include max-screen(992px){
+			max-width: none;
+		}
+		@include max-screen(768px){
+			max-width: none;
+		} 
+
 		.appl-banner__title{
+			@include size(7);
+			@include shift-left(3);
+			@include shift-superLg-left(2);
+			@include shift-mdd-left(1);
+			@include shift-xs-left(0);
 			color: #393939;
 			line-height: normal;
+
+			@include max-screen(768px){
+				font-size: 50px;
+			}
+			@include max-screen(480px){
+				font-size: 36px;
+			}  
 		}
 		.appl-banner__caption{
 			color: #2b9dff;
 		}
-	}
+		a{
+			display: block;
+			font-size: 24px;
+			font-family: $thin;
+		}
 
-	&:last-child{
-		margin-bottom: 0;
+		@include max-screen(480px){
+			min-height: 550px;
+		}  
 	}
+	&:hover{
+		text-decoration: none;
+	}
+	
 
 }
 .appl-banner__title{

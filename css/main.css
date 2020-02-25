@@ -2333,6 +2333,9 @@ h4 {
   .apple-pargf:last-of-type {
     margin-bottom: 0; }
 
+a img {
+  border: none; }
+
 .invert {
   background-color: #121217; }
   .invert h2 {
@@ -2478,15 +2481,14 @@ h4 {
   text-decoration: none; }
   .caption-link:hover {
     text-decoration: underline; }
-  @media only screen and (max-width: 576px) {
-    .caption-link {
-      font-size: 18px;
-      line-height: normal; } }
 
 a {
-  color: #2b9dff; }
+  color: #2b9dff;
+  text-decoration: none; }
   a.appl-link {
     text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
 
 .app-block-with-title {
   margin-bottom: 4.44444rem; }
@@ -2522,16 +2524,32 @@ a {
   font-family: "SFUIText-Regular", sans-serif;
   color: #fff; }
   .button:hover {
-    background-color: #7ac2ff; }
+    background-color: #7ac2ff;
+    text-decoration: none; }
   .button:active {
     background-color: #47aaff; }
   .button-rounded {
+    position: relative;
     padding: 12px 16px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
     font-size: 20px;
     line-height: 24px;
     font-family: "SFUIDisplay-Light", sans-serif; }
+    .button-rounded:after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: 100%;
+      height: 100%;
+      -webkit-border-radius: 50px;
+      border-radius: 50px;
+      border: solid 2px transparent; }
+    .button-rounded:hover {
+      border-color: transparent; }
+      .button-rounded:hover:after {
+        border-color: rgba(43, 157, 255, 0.75); }
   .button-empty {
     color: #000;
     background-color: transparent;
@@ -2545,11 +2563,6 @@ a {
       padding: 10px 25px 10px 25px;
       font-size: 18px;
       line-height: 23px; } }
-  @media only screen and (max-width: 576px) {
-    .button {
-      padding: 7px 15px;
-      font-size: 14px;
-      line-height: 19px; } }
 
 .app-opt-button {
   max-width: 301px;
@@ -3122,11 +3135,10 @@ form .attention-fields {
     .main-menu li a {
       text-decoration: none;
       color: #000;
-      -webkit-transform: opacity .5s;
-      -ms-transform: opacity .5s;
-      transform: opacity .5s; }
+      -webkit-transition: color .3s;
+      transition: color .3s; }
       .main-menu li a:hover {
-        opacity: .4; }
+        color: #2b9dff; }
       @media only screen and (max-width: 768px) {
         .main-menu li a {
           display: block; } }
@@ -3212,8 +3224,8 @@ form .attention-fields {
   margin-top: 0; }
 
 .blur {
-  -webkit-filter: blur(0.8em);
-  filter: blur(0.8em); }
+  -webkit-filter: blur(0.6em);
+  filter: blur(0.6em); }
 
 .blured {
   background-color: #fff;
@@ -3255,17 +3267,10 @@ form .attention-fields {
         position: absolute;
         cursor: pointer;
         right: 25px; }
-        @media only screen and (max-width: 375px) {
-          .appl-header-popup.cart-popup .appl-header-popup__item .appl-edit-icon,
-          .appl-header-popup.cart-popup .appl-header-popup__item .appl-recycler-icon {
-            right: 0; } }
       .appl-header-popup.cart-popup .appl-header-popup__item .appl-edit-icon {
         top: 16px; }
       .appl-header-popup.cart-popup .appl-header-popup__item .appl-recycler-icon {
         top: 46px; }
-      @media only screen and (max-width: 375px) {
-        .appl-header-popup.cart-popup .appl-header-popup__item {
-          padding-right: 26px; } }
     @media only screen and (max-width: 1700px) {
       .appl-header-popup.cart-popup:before {
         right: 30px; } }
@@ -3326,8 +3331,8 @@ form .attention-fields {
       transform: none;
       left: 0;
       right: 0;
-      top: 64px;
-      margin-top: 0;
+      top: 50px;
+      margin-top: 14px;
       margin-left: 0;
       max-height: -webkit-calc(100vh - 64px);
       max-height: calc(100vh - 64px);
@@ -3411,13 +3416,7 @@ form .attention-fields {
 .appl-header-popup__body {
   padding-right: 16px;
   padding-left: 19px;
-  margin-bottom: 26px;
-  max-height: 300px;
-  overflow: auto; }
-  @media only screen and (max-width: 768px) {
-    .appl-header-popup__body {
-      overflow: visible;
-      max-height: none; } }
+  margin-bottom: 26px; }
 
 .appl-header-popup__item {
   display: -webkit-flex;
@@ -3481,6 +3480,7 @@ form .attention-fields {
   max-width: 1412px; }
 
 .appl-banner {
+  display: block;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin-left: 8px;
@@ -3490,14 +3490,14 @@ form .attention-fields {
   margin-bottom: 16px;
   text-decoration: none; }
   .appl-banner--wide {
-    width: -webkit-calc(120% - 16px);
-    width: calc(120% - 16px); }
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 16px); }
   .appl-banner--top {
     position: relative;
     padding-bottom: 10.94444rem;
     padding-top: 48px;
-    background-image: url(../img/main-page/bg_headphones.svg), -webkit-linear-gradient(273deg, #2c1655 45%, #262131 93%);
-    background-image: url(../img/main-page/bg_headphones.svg), linear-gradient(177deg, #2c1655 45%, #262131 93%);
+    background-image: -webkit-linear-gradient(273deg, #2c1655 45%, #262131 93%);
+    background-image: linear-gradient(177deg, #2c1655 45%, #262131 93%);
     background-position: right bottom;
     background-repeat: no-repeat; }
     .appl-banner--top .appl-banner__title {
@@ -3508,6 +3508,18 @@ form .attention-fields {
       .appl-banner--top .appl-banner__title:nth-child(2) {
         max-width: 900px;
         opacity: .4; }
+        @media only screen and (max-width: 1200px) {
+          .appl-banner--top .appl-banner__title:nth-child(2) {
+            max-width: 60%; } }
+        @media only screen and (max-width: 576px) {
+          .appl-banner--top .appl-banner__title:nth-child(2) {
+            max-width: none; } }
+      @media only screen and (max-width: 1200px) {
+        .appl-banner--top .appl-banner__title {
+          max-width: 60%; } }
+      @media only screen and (max-width: 576px) {
+        .appl-banner--top .appl-banner__title {
+          max-width: none; } }
     .appl-banner--top .appl-banner__img {
       position: absolute;
       top: -17px;
@@ -3527,28 +3539,77 @@ form .attention-fields {
         right: 0;
         max-height: 100%;
         max-width: 100%; }
+        @media only screen and (max-width: 576px) {
+          .appl-banner--top .appl-banner__img img {
+            position: static; } }
+      @media only screen and (max-width: 1200px) {
+        .appl-banner--top .appl-banner__img {
+          width: 405px;
+          height: 300px; } }
+      @media only screen and (max-width: 992px) {
+        .appl-banner--top .appl-banner__img {
+          right: 0; } }
+      @media only screen and (max-width: 800px) {
+        .appl-banner--top .appl-banner__img {
+          width: 305px;
+          height: 200px;
+          top: 50%;
+          margin-top: -100px; } }
+      @media only screen and (max-width: 576px) {
+        .appl-banner--top .appl-banner__img {
+          position: relative;
+          top: 0;
+          margin-top: 30px; } }
     .appl-banner--top .footnote {
       position: absolute;
       bottom: 13px;
       left: 27px; }
+      @media only screen and (max-width: 576px) {
+        .appl-banner--top .footnote {
+          background-color: #281E3A; } }
+    .appl-banner--top:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: url(../img/main-page/bg_headphones.svg) right bottom no-repeat; }
+      @media only screen and (max-width: 1200px) {
+        .appl-banner--top:before {
+          background-size: auto 80%; } }
+      @media only screen and (max-width: 576px) {
+        .appl-banner--top:before {
+          background-size: auto 50%; } }
   .appl-banner--half {
     width: -webkit-calc(50% - 16px);
     width: calc(50% - 16px);
     min-height: 625px; }
+    @media screen and (max-width: 992px) {
+      .appl-banner--half {
+        width: -webkit-calc(100% - 16px);
+        width: calc(100% - 16px); } }
     .appl-banner--half .appl-banner__title {
       margin-bottom: 20px; }
-  .appl-banner:nth-child(2) {
+    @media only screen and (max-width: 992px) {
+      .appl-banner--half {
+        min-height: 400px; } }
+    @media only screen and (max-width: 768px) {
+      .appl-banner--half {
+        min-height: 300px; } }
+  .appl-banner--ipad {
     padding-top: 20px;
     position: relative;
     background-color: #f5f5f5;
     overflow: hidden; }
-    .appl-banner:nth-child(2) .appl-banner__title {
+    .appl-banner--ipad .appl-banner__title {
       margin-bottom: 15px;
       color: #002641; }
-    .appl-banner:nth-child(2) .appl-banner__caption {
+    .appl-banner--ipad .appl-banner__caption {
       font-size: 24px;
       color: #2b9dff; }
-    .appl-banner:nth-child(2) img {
+    .appl-banner--ipad img {
       display: block;
       max-width: 100%;
       max-height: 100%;
@@ -3564,7 +3625,7 @@ form .attention-fields {
       -webkit-transform: translate(-50%, 0);
       -ms-transform: translate(-50%, 0);
       transform: translate(-50%, 0); }
-  .appl-banner:nth-child(3) {
+  .appl-banner--iphone {
     position: relative;
     display: -webkit-flex;
     display: -moz-flex;
@@ -3591,18 +3652,36 @@ form .attention-fields {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
     /* IE6-9 */ }
-    .appl-banner:nth-child(3) .appl-banner__caption {
+    .appl-banner--iphone .appl-banner__caption {
       position: absolute;
       bottom: 29px;
       left: 28px;
       color: #fff;
       font-size: 32px; }
-    .appl-banner:nth-child(3) img {
+      @media only screen and (max-width: 576px) {
+        .appl-banner--iphone .appl-banner__caption {
+          font-size: 24px; } }
+      @media only screen and (max-width: 480px) {
+        .appl-banner--iphone .appl-banner__caption {
+          font-size: 18px; } }
+    .appl-banner--iphone img {
       position: absolute;
       bottom: 0;
       right: 42px;
       max-width: 42%;
       max-height: 573px; }
+      @media only screen and (max-width: 992px) {
+        .appl-banner--iphone img {
+          max-height: 99%; } }
+      @media only screen and (max-width: 480px) {
+        .appl-banner--iphone img {
+          right: 0; } }
+      @media only screen and (max-width: 375px) {
+        .appl-banner--iphone img {
+          right: -30px; } }
+    @media only screen and (max-width: 375px) {
+      .appl-banner--iphone {
+        overflow: hidden; } }
   .appl-banner--watch {
     position: relative;
     padding-top: 12.27778rem;
@@ -3613,17 +3692,26 @@ form .attention-fields {
     background-size: auto 100%; }
     .appl-banner--watch .appl-banner__title {
       position: relative;
+      display: inline-block;
       z-index: 1;
       margin-bottom: 20px;
       color: #fff; }
       .appl-banner--watch .appl-banner__title div {
         color: #67C3D3; }
+      @media only screen and (max-width: 576px) {
+        .appl-banner--watch .appl-banner__title {
+          background-color: #009AB6;
+          padding: 5px; } }
     .appl-banner--watch .appl-banner__caption {
       position: absolute;
       left: 27px;
       bottom: 4.27778rem;
       color: #fff;
       font-size: 24px; }
+      @media only screen and (max-width: 576px) {
+        .appl-banner--watch .appl-banner__caption {
+          background-color: #009AB6;
+          padding: 5px; } }
     .appl-banner--watch .appl-banner__img {
       position: absolute;
       top: 0;
@@ -3660,6 +3748,25 @@ form .attention-fields {
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
+        @media only screen and (max-width: 992px) {
+          .appl-banner--tv .appl-banner__img img, .appl-banner--macbook .appl-banner__img img {
+            position: static;
+            -webkit-transform: none;
+            -ms-transform: none;
+            transform: none;
+            display: inline-block; } }
+      @media only screen and (max-width: 992px) {
+        .appl-banner--tv .appl-banner__img, .appl-banner--macbook .appl-banner__img {
+          position: static;
+          max-width: none;
+          height: auto;
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 40px;
+          text-align: right; } }
+    @media only screen and (max-width: 992px) {
+      .appl-banner--tv, .appl-banner--macbook {
+        min-height: 1px; } }
   .appl-banner--tv {
     position: relative;
     background-color: #F5F5F5; }
@@ -3671,18 +3778,59 @@ form .attention-fields {
       bottom: 0; }
   .appl-banner--accessories {
     padding-top: 5.33333rem;
-    padding-left: 22.77778rem;
     min-height: 608px;
+    margin-bottom: 0;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover; }
+    @media only screen and (max-width: 1450px) {
+      .appl-banner--accessories {
+        max-width: none; } }
+    @media only screen and (max-width: 1200px) {
+      .appl-banner--accessories {
+        max-width: none; } }
+    @media only screen and (max-width: 992px) {
+      .appl-banner--accessories {
+        max-width: none; } }
+    @media only screen and (max-width: 768px) {
+      .appl-banner--accessories {
+        max-width: none; } }
     .appl-banner--accessories .appl-banner__title {
+      width: -webkit-calc(70% - 16px);
+      width: calc(70% - 16px);
+      margin-left: -webkit-calc(30% + 8px);
+      margin-left: calc(30% + 8px);
       color: #393939;
       line-height: normal; }
+      @media screen and (max-width: 1200px) {
+        .appl-banner--accessories .appl-banner__title {
+          margin-left: -webkit-calc(20% + 8px);
+          margin-left: calc(20% + 8px); } }
+      @media screen and (max-width: 960px) {
+        .appl-banner--accessories .appl-banner__title {
+          margin-left: -webkit-calc(10% + 8px);
+          margin-left: calc(10% + 8px); } }
+      @media screen and (max-width: 576px) {
+        .appl-banner--accessories .appl-banner__title {
+          margin-left: -webkit-calc(0% + 8px);
+          margin-left: calc(0% + 8px); } }
+      @media only screen and (max-width: 768px) {
+        .appl-banner--accessories .appl-banner__title {
+          font-size: 50px; } }
+      @media only screen and (max-width: 480px) {
+        .appl-banner--accessories .appl-banner__title {
+          font-size: 36px; } }
     .appl-banner--accessories .appl-banner__caption {
       color: #2b9dff; }
-  .appl-banner:last-child {
-    margin-bottom: 0; }
+    .appl-banner--accessories a {
+      display: block;
+      font-size: 24px;
+      font-family: "SFUIDisplay-Thin", sans-serif; }
+    @media only screen and (max-width: 480px) {
+      .appl-banner--accessories {
+        min-height: 550px; } }
+  .appl-banner:hover {
+    text-decoration: none; }
 
 .appl-banner__title {
   font-family: "SFUIDisplay-Bold", sans-serif; }
@@ -4570,8 +4718,7 @@ form .color-label {
       margin-bottom: 0; }
       @media only screen and (max-width: 992px) {
         .products-sidebar ul li:last-child {
-          margin-right: 0;
-          margin-bottom: 18px; } }
+          margin-right: 0; } }
     .products-sidebar ul li.active a {
       color: #000; }
     @media only screen and (max-width: 992px) {
@@ -4673,16 +4820,10 @@ form .color-label {
     margin-bottom: 16px;
     font-size: 24px;
     line-height: 29px; }
-    @media only screen and (max-width: 576px) {
-      .product-card__name {
-        font-size: 20px;
-        line-height: normal; } }
-    @media only screen and (max-width: 375px) {
-      .product-card__name {
-        font-size: 23px; } }
     @media only screen and (max-width: 320px) {
       .product-card__name {
-        font-size: 20px; } }
+        font-size: 22px;
+        line-height: normal; } }
 
 .search-results-left {
   width: 316px;
@@ -5026,6 +5167,11 @@ form .color-label {
     left: 0;
     top: 0;
     background-color: rgba(255, 255, 255, 0.4); }
+  @media only screen and (max-width: 576px) {
+    .sticky-footer .button {
+      padding: 7px 15px;
+      font-size: 14px;
+      line-height: 19px; } }
   @media only screen and (max-width: 992px) {
     .sticky-footer {
       height: 70px; } }
@@ -5334,10 +5480,28 @@ form .color-label {
       width: calc(100% - 16px); } }
 
 .footer-map {
+  position: relative;
   width: 260px;
   height: 260px;
   -webkit-border-radius: 50em;
-  border-radius: 50em; }
+  border-radius: 50em;
+  background: url(../img/map-fallback.png) 0 0 no-repeat;
+  background-size: cover; }
+  .footer-map:before {
+    content: '';
+    display: block;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-border-radius: 50em;
+    border-radius: 50em;
+    border: 10px solid rgba(255, 255, 255, 0.65);
+    z-index: 1;
+    pointer-events: none; }
   @media only screen and (max-width: 1450px) {
     .footer-map {
       margin-left: auto;
